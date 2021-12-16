@@ -1,0 +1,15 @@
+.select{
+  background-color: #111;
+  border-color: #19A974;
+  border-radius: 0.5em;
+  color: #19A974;
+  cursor: pointer;
+}
+
+.deselect{
+  background-color: #111;
+  border-color: #FF725C;
+  border-radius: 0.5em;
+  color: #FF725C;
+  cursor: pointer;
+}

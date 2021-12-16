@@ -1,0 +1,35 @@
+p{
+  display:flexbox;
+  flex-wrap:wrap;
+  white-space:pre-wrap;
+}
+
+.rw-card{
+  width: 18em;
+  background-color: #262626;
+  box-shadow: inset 0 0 7px 0 rgb(0 0 0 / 40%), 0 0 0 1px rgb(255 255 255 / 3%);
+}
+
+h2{
+  color: #ecd2a8;
+}
+
+.runes{
+  color: #FAB100
+}
+
+.types{
+  color: #fff
+}
+
+.level{
+  color: #ccc
+}
+
+.description{
+  color: #84b7ff
+}
+
+.ladder{
+  color: #ecd2a8
+}

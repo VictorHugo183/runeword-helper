@@ -1,0 +1,19 @@
+.footer{
+  color: #ecd2a8;
+  background-color: #151515;
+  margin-top: 1em;
+  padding-top: 0.7em;
+  padding-bottom: 1em;
+}
+.footerImg{
+  width: 1%;
+}
+a{
+  color: #ecd2a8;
+  text-decoration: none;
+}
+a:hover{
+  color: #ecd2a8;
+  text-decoration: none;
+  cursor: pointer;
+}
