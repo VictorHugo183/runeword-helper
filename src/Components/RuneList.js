@@ -1,6 +1,6 @@
 import React from 'react';
 import Rune from './Rune';
-import './RuneList.css';
+import '../Styles/RuneList.css';
 
 const RuneList = ({runeNames, runeSelect, selectedRunes}) =>{
   return(

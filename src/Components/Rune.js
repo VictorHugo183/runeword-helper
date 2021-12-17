@@ -1,5 +1,5 @@
 import React from 'react';
-import './Rune.css';
+import '../Styles/Rune.css';
 
 const Rune = (props) =>{
   const {name, runeSelect, selectedRunes} = props;

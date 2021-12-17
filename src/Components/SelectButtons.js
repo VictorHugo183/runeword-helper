@@ -1,5 +1,5 @@
 import React from 'react';
-import './SelectButtons.css';
+import '../Styles/SelectButtons.css';
 
 const SelectButtons = ({selectAll, deselectAll}) => {
   return(

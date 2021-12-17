@@ -1,5 +1,5 @@
 import React from 'react';
-import './ModeToggle.css';
+import '../Styles/ModeToggle.css';
 
 const ModeToggle = ({activatedD2R, modeToggle}) =>{
   if(activatedD2R){

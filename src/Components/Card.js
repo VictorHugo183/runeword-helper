@@ -1,5 +1,5 @@
 import React from 'react';
-import './Card.css'
+import '../Styles/Card.css'
 
 const Card = (props) => {
   const {title,desc,runes,types,level,ladder} = props;
