@@ -6,7 +6,7 @@
   padding-bottom: 1em;
 }
 .footerImg{
-  width: 1%;
+  width: 1em;
 }
 a{
   color: #ecd2a8;
@@ -14,6 +14,6 @@ a{
 }
 a:hover{
   color: #ecd2a8;
-  text-decoration: none;
+  text-decoration: underline;
   cursor: pointer;
 }

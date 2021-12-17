@@ -1,0 +1,67 @@
+.toggleContainer{
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+
+.mode{
+  position: relative;
+  display: inline-block;
+  top: 0.4em;
+  color: #ecd2a8;
+  padding-left: 1em;
+}
+
+
+.switch{
+  position: relative;
+  display: inline-block;
+  width: 60px;
+/*   height: 34px; */
+height: 2em;
+}
+
+/* hide default input */
+.switch input{
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider{
+  /* changes outside */
+  position: absolute;
+  cursor: pointer;
+  border-radius: 34px;
+
+  top: 0;
+  left: 0;
+  right:0;
+  bottom:0;
+
+  background-color: #cccccc;
+  /* color transition */
+  transition: 0.3s;
+}
+
+.slider:before{
+  /* changes area inside */
+  border-radius: 50%;
+  position: absolute;
+  content: "";
+  /* height:26px; */
+  height: 1.5em;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  /* button transition */
+  transition: 0.3s;
+}
+
+input:checked + .slider{
+  background-color: #84b7ff
+}
+
+input:checked + .slider:before{
+  transform: translateX(26px);
+}

@@ -1,19 +1,23 @@
 import React from 'react';
 import CardList from './CardList';
 import runewords from './runewords';
+import d2rRunewords from './d2r-runewords';
 import runewordsDesc from './runewords-descriptions';
+import d2rRunewordsDesc from './d2r-runewords-descriptions';
 import SearchBox from './SearchBox'
 import runes from './runes';
 import RuneList from './RuneList';
 import SelectButtons from './SelectButtons';
 import Header from './Header';
 import Footer from './Footer';
+import ModeToggle from './ModeToggle';
 
 class App extends React.Component{
   constructor(){
     super();
     this.state = {
       runewords: runewords,
+      d2rRunewords: d2rRunewords,
       searchfield: '',
       selectedRunes: {
         El: true, Eld: true, Tir: true, Nef: true, Eth: true, Ith: true, Tal: true,
@@ -21,10 +25,36 @@ class App extends React.Component{
         Dol: true, Hel: true, Io: true, Lum: true, Ko: true, Fal: true, Lem: true,
         Pul: true, Um: true, Mal: true, Ist: true, Gul:true, Vex: true, Ohm: true,
         Lo: true, Sur:true, Ber: true, Jah:true, Cham: true, Zod:true
-      }
+      },
+      activatedD2R : true
+    }
+  }
+  /* this only runs once when the component is first loaded, it will retrieve the state saved on local storage and use it instead of the default state if it exists*/
+/*   componentDidMount(){
+    const data = JSON.parse(window.localStorage.getItem('runeword-helper'));
+    if(data){
+      this.setState({selectedRunes: data})
+    }
+  } */
+  componentDidMount(){
+    const data = JSON.parse(window.localStorage.getItem('runeword-helper'));
+    if(data){
+      this.setState({selectedRunes: data.selectedRunes});
+      this.setState({activatedD2R: data.activatedD2Rmode});
     }
   }
 
+  /* every time that state changes, this function will run and we'll save state to local storage */
+/*   componentDidUpdate(){
+    window.localStorage.setItem('runeword-helper', JSON.stringify(this.state.selectedRunes));
+  }
+ */
+  componentDidUpdate(){
+    const selectedRunes = this.state.selectedRunes;
+    const activatedD2Rmode = this.state.activatedD2R;
+    const valuesToSave = {selectedRunes, activatedD2Rmode};
+    window.localStorage.setItem('runeword-helper', JSON.stringify(valuesToSave));
+  }
   onSearchChange = (event) => {
     this.setState({searchfield: event.target.value})
   }
@@ -58,26 +88,62 @@ class App extends React.Component{
     }
   }
 
+  modeToggle = () => {
+    if(this.state.activatedD2R === true){
+      this.setState({activatedD2R : false});
+    }
+    else{
+      this.setState({ activatedD2R: true });
+    }
+  }
+
   render(){
     const runeNames = runes.map(rune => rune.name);
+    let trueFilter;
 
     /* filter by searchbox input, then filter by runewords which ALL the required runes are true */
-    const trueFilter = this.state.runewords.filter(item =>{
-      return item.title.toLowerCase().includes(this.state.searchfield.toLowerCase());
-    }).filter(item => {
-      return item.runes.every(rune => this.state.selectedRunes[rune])
-    })
+    if(this.state.activatedD2R){
+      trueFilter = this.state.d2rRunewords.filter(item => {
+        return item.title.toLowerCase().includes(this.state.searchfield.toLowerCase());
+      }).filter(item => {
+        //true if EVERY rune present in the runes array of a runeword has a corresponding true value in the selectedRunes state
+        return item.runes.every(rune => this.state.selectedRunes[rune])
+      })
+    }
+    else{
+      trueFilter = this.state.runewords.filter(item => {
+        return item.title.toLowerCase().includes(this.state.searchfield.toLowerCase());
+      }).filter(item => {
+        return item.runes.every(rune => this.state.selectedRunes[rune])
+      })
+    }
 
-    return(
-      <div className="tc">
-        <Header />
-        <SearchBox searchChange={this.onSearchChange}/>
-        <SelectButtons selectAll={this.selectAll} deselectAll={this.deselectAll} />
-        <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes}/>
-        <CardList runewords={trueFilter} runewordsDesc={runewordsDesc} />
-        <Footer />
-      </div>
-    )
+    if(this.state.activatedD2R){
+      return (
+        <div className="tc">
+          <Header />
+          <SearchBox searchChange={this.onSearchChange} />
+          <ModeToggle activatedD2R={this.state.activatedD2R} modeToggle={this.modeToggle} />
+          <SelectButtons selectAll={this.selectAll} deselectAll={this.deselectAll} />
+          <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
+          <CardList runewords={trueFilter} runewordsDesc={d2rRunewordsDesc} />
+          <Footer />
+        </div>
+      );
+    }
+    else{
+      return (
+        <div className="tc">
+          <Header />
+          <SearchBox searchChange={this.onSearchChange} />
+          <ModeToggle activatedD2R={this.state.activatedD2R} modeToggle={this.modeToggle} />
+          <SelectButtons selectAll={this.selectAll} deselectAll={this.deselectAll} />
+          <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
+          <CardList runewords={trueFilter} runewordsDesc={runewordsDesc} />
+          <Footer />
+        </div>
+      )
+    }
   }
 }
 
