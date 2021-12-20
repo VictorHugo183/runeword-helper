@@ -9,6 +9,8 @@
 </p>
 
 <p align="center"><em>An application to help you visualize what Runewords you can make with the current Runes you own in Diablo 2.</em></p>
+<p align="center"><em>Legacy mode: to use for Diablo II LoD v1.14</em></p>
+<p align="center"><em>D2R mode: to use for Diablo II: Resurrected v2.3</em></p>
 
 ## Development Notes
 
