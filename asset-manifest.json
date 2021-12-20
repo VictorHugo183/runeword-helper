@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/runeword-helper/static/css/main.84253fa9.css",
-    "main.js": "/runeword-helper/static/js/main.0fa59783.js",
+    "main.js": "/runeword-helper/static/js/main.a9687a02.js",
     "static/js/787.ace372f7.chunk.js": "/runeword-helper/static/js/787.ace372f7.chunk.js",
     "static/media/githubLogo.png": "/runeword-helper/static/media/githubLogo.5f0a0c6827cfdd7dbb58.png",
     "index.html": "/runeword-helper/index.html",
     "main.84253fa9.css.map": "/runeword-helper/static/css/main.84253fa9.css.map",
-    "main.0fa59783.js.map": "/runeword-helper/static/js/main.0fa59783.js.map",
+    "main.a9687a02.js.map": "/runeword-helper/static/js/main.a9687a02.js.map",
     "787.ace372f7.chunk.js.map": "/runeword-helper/static/js/787.ace372f7.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.84253fa9.css",
-    "static/js/main.0fa59783.js"
+    "static/js/main.a9687a02.js"
   ]
 }
