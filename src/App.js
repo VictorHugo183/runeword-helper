@@ -11,6 +11,11 @@ import SelectButtons from './Components/SelectButtons';
 import Header from './Components/Header';
 import Footer from './Components/Footer';
 import ModeToggle from './Components/ModeToggle';
+import ScrollToTop from 'react-scroll-to-top';
+
+/* sort runewords alphabetically, runewords were originally organized by which patch introduced them, but for this app that is unnecessary */
+runewords.sort((a,b) => a.title.localeCompare(b.title));
+d2rRunewords.sort((a,b) => a.title.localeCompare(b.title));
 
 class App extends React.Component{
   constructor(){
@@ -55,6 +60,7 @@ class App extends React.Component{
     const valuesToSave = {selectedRunes, activatedD2Rmode};
     window.localStorage.setItem('runeword-helper', JSON.stringify(valuesToSave));
   }
+
   onSearchChange = (event) => {
     this.setState({searchfield: event.target.value})
   }
@@ -127,6 +133,7 @@ class App extends React.Component{
           <SelectButtons selectAll={this.selectAll} deselectAll={this.deselectAll} />
           <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
           <CardList runewords={trueFilter} runewordsDesc={d2rRunewordsDesc} />
+          <ScrollToTop smooth style={{backgroundColor: "#777", right: "10px"}} color="262626" />
           <Footer />
         </div>
       );
@@ -140,6 +147,7 @@ class App extends React.Component{
           <SelectButtons selectAll={this.selectAll} deselectAll={this.deselectAll} />
           <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
           <CardList runewords={trueFilter} runewordsDesc={runewordsDesc} />
+          <ScrollToTop smooth style={{ backgroundColor: "#777", right: "10px" }} color="262626" />
           <Footer />
         </div>
       )
