@@ -133,7 +133,7 @@ class App extends React.Component{
           <SelectButtons selectAll={this.selectAll} deselectAll={this.deselectAll} />
           <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
           <CardList runewords={trueFilter} runewordsDesc={d2rRunewordsDesc} />
-          <ScrollToTop smooth style={{backgroundColor: "#777", right: "10px"}} color="262626" />
+          <ScrollToTop smooth style={{ backgroundColor: "#777", right: "10px" }} color="262626" viewBox="0 0 256 256" preserveAspectRatio="none"/>
           <Footer />
         </div>
       );
@@ -147,7 +147,7 @@ class App extends React.Component{
           <SelectButtons selectAll={this.selectAll} deselectAll={this.deselectAll} />
           <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
           <CardList runewords={trueFilter} runewordsDesc={runewordsDesc} />
-          <ScrollToTop smooth style={{ backgroundColor: "#777", right: "10px" }} color="262626" />
+          <ScrollToTop smooth style={{ backgroundColor: "#777", right: "10px" }} color="262626" viewBox="0 0 256 256" preserveAspectRatio="none"/>
           <Footer />
         </div>
       )
