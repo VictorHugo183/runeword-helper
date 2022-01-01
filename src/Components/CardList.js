@@ -2,25 +2,54 @@ import React from 'react';
 import Card from './Card';
 
 const CardList = (props) => {
-  const {runewords, runewordsDesc} = props;
+  const {trueRunewords, falseRunewords, runewordsDesc, searchInput, selectedRunes} = props;
 
-  const cardsArray = runewords.map((item, i) =>{
-    return( 
-      <Card 
-        key={runewords[i].title}
-        title={runewords[i].title}
-        desc={runewordsDesc[runewords[i].title]}
-        runes={runewords[i].runes.map(item => `${item} `)}
-        types={runewords[i].ttypes.map(item => `${item} `)}
-        level={runewords[i].level}
-        ladder={runewords[i].ladder}
+  const trueCardsArray = trueRunewords.map((item, i) =>{
+    return (
+      <Card
+        key={trueRunewords[i].title}
+        title={trueRunewords[i].title}
+        desc={runewordsDesc[trueRunewords[i].title]}
+        runes={trueRunewords[i].runes.map(item => `${item} `)}
+        runesList={trueRunewords[i].runes}
+        types={trueRunewords[i].ttypes.map(item => `${item} `)}
+        level={trueRunewords[i].level}
+        ladder={trueRunewords[i].ladder}
+        canMake={true}
+        selectedRunes={selectedRunes}
       />
     );
   })
-  
+
+  const falseCardsArray = falseRunewords.map((item, i) => {
+    return(
+      <Card
+        key={falseRunewords[i].title}
+        title={falseRunewords[i].title}
+        desc={runewordsDesc[falseRunewords[i].title]}
+        runes={falseRunewords[i].runes.map(item => `${item} `)}
+        runesList={falseRunewords[i].runes}
+        types={falseRunewords[i].ttypes.map(item => `${item} `)}
+        level={falseRunewords[i].level}
+        ladder={falseRunewords[i].ladder}
+        canMake={false}
+        selectedRunes={selectedRunes}
+      />
+    );
+  })
+
+  const filteredTrueCards = trueCardsArray.filter((item, i) =>{
+    return item.props.title.toLowerCase().includes(searchInput.toLowerCase());
+  })
+
+  const filteredFalseCards = falseCardsArray.filter((item, i) =>{
+    return item.props.title.toLowerCase().includes(searchInput.toLowerCase());
+  })
+
   return(
-    <div>
-      {cardsArray}
+    <div className="cardsContainer">
+      {filteredTrueCards}
+      {filteredFalseCards}
     </div>
   );
 }

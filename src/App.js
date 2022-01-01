@@ -35,12 +35,6 @@ class App extends React.Component{
     }
   }
   /* this only runs once when the component is first loaded, it will retrieve the state saved on local storage and use it instead of the default state if it exists*/
-/*   componentDidMount(){
-    const data = JSON.parse(window.localStorage.getItem('runeword-helper'));
-    if(data){
-      this.setState({selectedRunes: data})
-    }
-  } */
   componentDidMount(){
     const data = JSON.parse(window.localStorage.getItem('runeword-helper'));
     if(data){
@@ -103,25 +97,28 @@ class App extends React.Component{
     }
   }
 
+  //generate two arrays: one for runewords we can make, and one for runewords we can't make.
+  filterRunes = (runewords) => {
+    const trueRunewords = [];
+    const falseRunewords = [];
+    for(let i = 0; i < runewords.length; i++){
+      if(runewords[i].title.toLowerCase().includes(this.state.searchfield.toLowerCase()) && runewords[i].runes.every(rune => this.state.selectedRunes[rune])){
+        trueRunewords.push(runewords[i]);
+      } else{
+        falseRunewords.push(runewords[i]);
+      }
+    }
+    return [trueRunewords, falseRunewords];
+  }
+
   render(){
     const runeNames = runes.map(rune => rune.name);
-    let trueFilter;
+    let filteredRW;
 
-    /* filter by searchbox input, then filter by runewords which ALL the required runes are true */
     if(this.state.activatedD2R){
-      trueFilter = this.state.d2rRunewords.filter(item => {
-        return item.title.toLowerCase().includes(this.state.searchfield.toLowerCase());
-      }).filter(item => {
-        //true if EVERY rune present in the runes array of a runeword has a corresponding true value in the selectedRunes state
-        return item.runes.every(rune => this.state.selectedRunes[rune])
-      })
-    }
-    else{
-      trueFilter = this.state.runewords.filter(item => {
-        return item.title.toLowerCase().includes(this.state.searchfield.toLowerCase());
-      }).filter(item => {
-        return item.runes.every(rune => this.state.selectedRunes[rune])
-      })
+      filteredRW = this.filterRunes(this.state.d2rRunewords);
+    } else{
+      filteredRW = this.filterRunes(this.state.runewords);
     }
 
     if(this.state.activatedD2R){
@@ -132,8 +129,9 @@ class App extends React.Component{
           <ModeToggle activatedD2R={this.state.activatedD2R} modeToggle={this.modeToggle} />
           <SelectButtons selectAll={this.selectAll} deselectAll={this.deselectAll} />
           <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
-          <CardList runewords={trueFilter} runewordsDesc={d2rRunewordsDesc} />
-          <ScrollToTop smooth style={{ backgroundColor: "#777", right: "10px" }} color="262626" viewBox="0 0 256 256" preserveAspectRatio="none"/>
+          <CardList searchInput={this.state.searchfield} trueRunewords={filteredRW[0]} falseRunewords={filteredRW[1]}
+           runewordsDesc={d2rRunewordsDesc} selectedRunes={this.state.selectedRunes}/>
+          <ScrollToTop smooth style={{ backgroundColor: "#777", right: "0.5em" }} color="262626" viewBox="0 0 255 255" preserveAspectRatio="none"/>
           <Footer />
         </div>
       );
@@ -146,8 +144,9 @@ class App extends React.Component{
           <ModeToggle activatedD2R={this.state.activatedD2R} modeToggle={this.modeToggle} />
           <SelectButtons selectAll={this.selectAll} deselectAll={this.deselectAll} />
           <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
-          <CardList runewords={trueFilter} runewordsDesc={runewordsDesc} />
-          <ScrollToTop smooth style={{ backgroundColor: "#777", right: "10px" }} color="262626" viewBox="0 0 256 256" preserveAspectRatio="none"/>
+          <CardList searchInput={this.state.searchfield} trueRunewords={filteredRW[0]} falseRunewords={filteredRW[1]}
+           runewordsDesc={runewordsDesc} selectedRunes={this.state.selectedRunes} />
+          <ScrollToTop smooth style={{ backgroundColor: "#777", right: "0.5em" }} color="262626" viewBox="0 0 255 255" preserveAspectRatio="none"/>
           <Footer />
         </div>
       )
