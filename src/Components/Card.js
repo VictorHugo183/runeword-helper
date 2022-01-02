@@ -9,10 +9,10 @@ const Card = (props) => {
   //and set its class according to if it is true or false (this will determine the text colour).
   for(let i = 0; i < runesList.length; i++){
     if(selectedRunes[runesList[i]] === true){
-      runeElements.push(<span className="runes">{runesList[i]} </span>)
+      runeElements.push(<span className="runes" key={runesList[i] + i}>{runesList[i]} </span>)
     }
     else{
-      runeElements.push(<span className="level">{runesList[i]} </span>)
+      runeElements.push(<span className="level" key={runesList[i] + i}>{runesList[i]} </span>)
     }
   }
 

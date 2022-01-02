@@ -26,7 +26,7 @@ const ModeToggle = ({activatedD2R, modeToggle}) =>{
           />
           <span className="slider" />
         </label>
-        <span className="mode">Legacy Mode</span>
+        <span className="mode">LoD Mode</span>
       </div>
     );
   }

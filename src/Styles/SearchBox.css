@@ -1,8 +1,8 @@
 .searchBox{
+  -webkit-appearance: none;
   color: #cdc7b5;
   border-radius: 3px;
-  background: rgb(50,50,50);
-  -webkit-background: rgb(50,50,50);
+  background: rgb(50,50,50) !important; 
   border: 1px solid #000;
   height: 2em;
   padding-left: 0.5em;

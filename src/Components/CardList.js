@@ -7,7 +7,7 @@ const CardList = (props) => {
   const trueCardsArray = trueRunewords.map((item, i) =>{
     return (
       <Card
-        key={trueRunewords[i].title}
+        key={trueRunewords[i].title + i}
         title={trueRunewords[i].title}
         desc={runewordsDesc[trueRunewords[i].title]}
         runes={trueRunewords[i].runes.map(item => `${item} `)}
@@ -24,7 +24,7 @@ const CardList = (props) => {
   const falseCardsArray = falseRunewords.map((item, i) => {
     return(
       <Card
-        key={falseRunewords[i].title}
+        key={falseRunewords[i].title + i}
         title={falseRunewords[i].title}
         desc={runewordsDesc[falseRunewords[i].title]}
         runes={falseRunewords[i].runes.map(item => `${item} `)}
