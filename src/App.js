@@ -13,6 +13,8 @@ import Footer from './Components/Footer';
 import ModeToggle from './Components/ModeToggle';
 import ScrollToTop from 'react-scroll-to-top';
 import FilterList from './Components/FilterList';
+import { filterHelms, filterShields, filterBodyArmors, filterAllArmor, filterAllWeapons, filterMeleeWeapons,
+filterMissileWeapons, filterAxes, filterClaws, filterClubs, filterHammers, filterMaces, filterPolearms, filterScepters} from './Helpers/filterFunctions';
 
 /* sort runewords alphabetically, runewords were originally organized by which patch introduced them, but for this app that is unnecessary */
 runewords.sort((a,b) => a.title.localeCompare(b.title));
@@ -35,7 +37,9 @@ class App extends React.Component{
       activatedD2R : true,
       filterListVisible: false,
       selectedFilters: {
-        'All Armor':false, 'Body Armors': false, 'Helms' : false, 'Shields' : false
+        'All Armor':false, 'Body Armors': false, 'Helms' : false, 'Shields' : false, 'All Weapons':false, 'Melee Weapons':false,
+        'Missile Weapons':false, 'Axes':false, 'Claws': false, 'Clubs': false, 'Hammers':false, 'Maces':false, 'Polearms':false,
+        'Scepters':false
       }
     }
   }
@@ -135,48 +139,17 @@ class App extends React.Component{
     }
   }
 
-  filterAllArmor = (runewords) => {
-    if(this.state.selectedFilters['All Armor'] === true){
-      return runewords.filter(item =>{
-        return (item.ttypes.includes("Body Armors") || item.ttypes.includes("Helms") || item.ttypes.includes("Shields") || item.ttypes.includes("Paladin Shields"))
-      })
-    } else{
-      return runewords
-    }
-  }
-
-  filterBodyArmors = (runewords) => {
-    if(this.state.selectedFilters['All Armor'] === true){return runewords}
-    if(this.state.selectedFilters['Body Armors'] === true){
-      return runewords.filter(item =>{
-        return item.ttypes.includes("Body Armors")
-      })
-    } else{
-      return runewords;
-    }
-  }
-
-  filterHelms = (runewords) => {
-    if (this.state.selectedFilters['All Armor'] === true) { return runewords }
-    if (this.state.selectedFilters['Helms'] === true) {
-      return runewords.filter(item => {
-        return item.ttypes.includes("Helms")
-      })
-    } else {
-      return runewords;
-    }
-  }
-
-  filterShields = (runewords) => {
-    if (this.state.selectedFilters['All Armor'] === true) { return runewords }
-    if (this.state.selectedFilters['Shields'] === true) {
-      return runewords.filter(item => {
-        return item.ttypes.includes("Shields") || item.ttypes.includes("Paladin Shields")
-      })
-    } else {
-      return runewords;
-    }
-  }
+  //old filter function before using external helper functions
+  /*  filterHelms = (runewords) => {
+     if (this.state.selectedFilters['All Armor'] === true) { return runewords }
+     if (this.state.selectedFilters['Helms'] === true) {
+       return runewords.filter(item => {
+         return item.ttypes.includes("Helms")
+       })
+     } else {
+       return runewords;
+     }
+   } */
 
   render(){
     const runeNames = runes.map(rune => rune.name);
@@ -191,23 +164,30 @@ class App extends React.Component{
 
     let allFiltered = [];
     //if a filter is not applied, the filter function will return the original runeword, if that happens we don't need to push it to the allFiltered array
-    if (originalRunewords !== this.filterAllArmor(originalRunewords)) { allFiltered.push(this.filterAllArmor(originalRunewords)); }
-    if (originalRunewords !== this.filterBodyArmors(originalRunewords)) { allFiltered.push(this.filterBodyArmors(originalRunewords));}
-    if (originalRunewords !== this.filterHelms(originalRunewords)) { allFiltered.push(this.filterHelms(originalRunewords));}
-    if (originalRunewords !== this.filterShields(originalRunewords)) { allFiltered.push(this.filterShields(originalRunewords));}
-    
-/*     if(this.state.activatedD2R){
-      filteredRW = this.filterRunes(this.state.d2rRunewords);
-    } else{
-      filteredRW = this.filterRunes(this.state.runewords);
-    } */
+    //old way when there were filter methods and not external filter functions:
+    /* if (originalRunewords !== this.filterAllArmor(originalRunewords)) { allFiltered.push(this.filterAllArmor(originalRunewords)); } */
+    if (originalRunewords !== filterAllArmor(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterAllArmor(this.state.selectedFilters, originalRunewords)); }
+    if (originalRunewords !== filterBodyArmors(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterBodyArmors(this.state.selectedFilters,originalRunewords));}
+    if (originalRunewords !== filterHelms(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterHelms(this.state.selectedFilters, originalRunewords));}
+    if (originalRunewords !== filterShields(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterShields(this.state.selectedFilters, originalRunewords));}
 
+    if (originalRunewords !== filterAllWeapons(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterAllWeapons(this.state.selectedFilters, originalRunewords));}
+    if (originalRunewords !== filterMeleeWeapons(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterMeleeWeapons(this.state.selectedFilters, originalRunewords));}
+    if (originalRunewords !== filterMissileWeapons(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterMissileWeapons(this.state.selectedFilters, originalRunewords));}
+    if (originalRunewords !== filterAxes(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterAxes(this.state.selectedFilters, originalRunewords));}
+    if (originalRunewords !== filterClaws(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterClaws(this.state.selectedFilters, originalRunewords));}
+    if (originalRunewords !== filterClubs(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterClubs(this.state.selectedFilters, originalRunewords));}
+    if (originalRunewords !== filterHammers(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterHammers(this.state.selectedFilters, originalRunewords));}
+    if (originalRunewords !== filterMaces(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterMaces(this.state.selectedFilters, originalRunewords));}
+    if (originalRunewords !== filterPolearms(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterPolearms(this.state.selectedFilters, originalRunewords));}
+    if (originalRunewords !== filterScepters(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterScepters(this.state.selectedFilters, originalRunewords));}
+    
     //remove all duplicate entries in the array of objects allFiltered
     const noDuplicatesFiltered = allFiltered.flat().filter((item,i,arr) =>{
       return i === arr.findIndex((element) => (element.title === item.title))
     }
     )
-    //Alternative to the above, Map will be more efficient for larger arrays.
+    //Alternative to the above, Map will be more efficient for larger arrays but will not preserve order.
     /*const test = [...new Map(allFiltered.flat().map(item => [JSON.stringify([item.title]), item])).values()] */
 
     //sort the filtered results alphabetically
@@ -217,7 +197,7 @@ class App extends React.Component{
     if(Object.values(this.state.selectedFilters).every(item => item === false)){
       filteredRW = this.filterRunes(originalRunewords);
     } else{
-      filteredRW = this.filterRunes(test);
+      filteredRW = this.filterRunes(noDuplicatesFiltered);
       console.log(noDuplicatesFiltered)
     }
 
