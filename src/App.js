@@ -1,4 +1,5 @@
 import React from 'react';
+import './Styles/App.css';
 import CardList from './Components/CardList';
 import runewords from './Data/runewords';
 import d2rRunewords from './Data/d2r-runewords';
@@ -13,8 +14,9 @@ import Footer from './Components/Footer';
 import ModeToggle from './Components/ModeToggle';
 import ScrollToTop from 'react-scroll-to-top';
 import FilterList from './Components/FilterList';
-import { filterHelms, filterShields, filterBodyArmors, filterAllArmor, filterAllWeapons, filterMeleeWeapons,
-filterMissileWeapons, filterAxes, filterClaws, filterClubs, filterHammers, filterMaces, filterPolearms, filterScepters} from './Helpers/filterFunctions';
+import {filterHelms, filterShields, filterBodyArmors, filterAllArmor, filterAllWeapons, filterMeleeWeapons,
+filterMissileWeapons, filterAxes, filterClaws, filterClubs, filterHammers, filterMaces, filterPolearms, filterScepters,
+filterStaves, filterSwords, filterWands} from './Helpers/filterFunctions';
 
 /* sort runewords alphabetically, runewords were originally organized by which patch introduced them, but for this app that is unnecessary */
 runewords.sort((a,b) => a.title.localeCompare(b.title));
@@ -39,8 +41,9 @@ class App extends React.Component{
       selectedFilters: {
         'All Armor':false, 'Body Armors': false, 'Helms' : false, 'Shields' : false, 'All Weapons':false, 'Melee Weapons':false,
         'Missile Weapons':false, 'Axes':false, 'Claws': false, 'Clubs': false, 'Hammers':false, 'Maces':false, 'Polearms':false,
-        'Scepters':false
-      }
+        'Scepters':false, 'Staves':false, 'Swords': false, 'Wands': false
+      },
+      socketValue: 'Any'
     }
   }
   /* this only runs once when the component is first loaded, it will retrieve the state saved on local storage and use it instead of the default state if it exists*/
@@ -139,6 +142,10 @@ class App extends React.Component{
     }
   }
 
+  onSocketChange = (event) => {
+    this.setState({socketValue : event.target.value});
+  }
+
   //old filter function before using external helper functions
   /*  filterHelms = (runewords) => {
      if (this.state.selectedFilters['All Armor'] === true) { return runewords }
@@ -162,10 +169,18 @@ class App extends React.Component{
       originalRunewords = this.state.runewords;
     }
 
+    if(this.state.socketValue !== 'Any'){
+      let value = Number(this.state.socketValue);
+      originalRunewords = originalRunewords.filter(item =>{
+        return item.runes.length === value;
+      })
+    }
+
     let allFiltered = [];
     //if a filter is not applied, the filter function will return the original runeword, if that happens we don't need to push it to the allFiltered array
     //old way when there were filter methods and not external filter functions:
     /* if (originalRunewords !== this.filterAllArmor(originalRunewords)) { allFiltered.push(this.filterAllArmor(originalRunewords)); } */
+
     if (originalRunewords !== filterAllArmor(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterAllArmor(this.state.selectedFilters, originalRunewords)); }
     if (originalRunewords !== filterBodyArmors(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterBodyArmors(this.state.selectedFilters,originalRunewords));}
     if (originalRunewords !== filterHelms(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterHelms(this.state.selectedFilters, originalRunewords));}
@@ -181,6 +196,9 @@ class App extends React.Component{
     if (originalRunewords !== filterMaces(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterMaces(this.state.selectedFilters, originalRunewords));}
     if (originalRunewords !== filterPolearms(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterPolearms(this.state.selectedFilters, originalRunewords));}
     if (originalRunewords !== filterScepters(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterScepters(this.state.selectedFilters, originalRunewords));}
+    if (originalRunewords !== filterStaves(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterStaves(this.state.selectedFilters, originalRunewords));}
+    if (originalRunewords !== filterSwords(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterSwords(this.state.selectedFilters, originalRunewords));}
+    if (originalRunewords !== filterWands(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterWands(this.state.selectedFilters, originalRunewords));}
     
     //remove all duplicate entries in the array of objects allFiltered
     const noDuplicatesFiltered = allFiltered.flat().filter((item,i,arr) =>{
@@ -198,10 +216,10 @@ class App extends React.Component{
       filteredRW = this.filterRunes(originalRunewords);
     } else{
       filteredRW = this.filterRunes(noDuplicatesFiltered);
-      console.log(noDuplicatesFiltered)
     }
 
-    const filterBtnText = this.state.filterListVisible ? "Hide Filters" : "Show Filters";
+    const filterBtnText = this.state.filterListVisible ? "Hide Filters" : "More Filters";
+    const arrowDirection = this.state.filterListVisible ? "arrow up" : "arrow down";
 
     if(this.state.activatedD2R){
       return (
@@ -210,14 +228,17 @@ class App extends React.Component{
           <SearchBox searchChange={this.onSearchChange} />
           <ModeToggle activatedD2R={this.state.activatedD2R} modeToggle={this.modeToggle} />
           <SelectButtons selectAll={this.selectAll} deselectAll={this.deselectAll} />
-          <button 
+          <h3 
+          className="filterToggle"
           onClick={() => {
             this.setState({filterListVisible : !this.state.filterListVisible})
-          }}>
+          }}
+          >
             {filterBtnText}
-          </button>
+            <i className={arrowDirection}></i>
+          </h3>
           <div style={this.state.filterListVisible ? {} : {display: 'none'}}>
-            <FilterList onFilterChange={this.onFilterChange} />
+            <FilterList onFilterChange={this.onFilterChange} socketValue={this.state.socketValue} onSocketChange={this.onSocketChange}/>
           </div>
           <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
           <CardList searchInput={this.state.searchfield} trueRunewords={filteredRW[0]} falseRunewords={filteredRW[1]}
@@ -234,14 +255,17 @@ class App extends React.Component{
           <SearchBox searchChange={this.onSearchChange} />
           <ModeToggle activatedD2R={this.state.activatedD2R} modeToggle={this.modeToggle} />
           <SelectButtons selectAll={this.selectAll} deselectAll={this.deselectAll} />
-          <button
+          <h3
+            className="filterToggle"
             onClick={() => {
               this.setState({ filterListVisible: !this.state.filterListVisible })
-            }}>
+            }}
+          >
             {filterBtnText}
-          </button>
+            <i className={arrowDirection}></i>
+          </h3>
           <div style={this.state.filterListVisible ? {} : { display: 'none' }}>
-            <FilterList onFilterChange={this.onFilterChange} />
+            <FilterList onFilterChange={this.onFilterChange} socketValue={this.state.socketValue} onSocketChange={this.onSocketChange}/>
           </div>
           <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
           <CardList searchInput={this.state.searchfield} trueRunewords={filteredRW[0]} falseRunewords={filteredRW[1]}

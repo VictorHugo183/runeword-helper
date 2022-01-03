@@ -1,0 +1,27 @@
+.filterToggle{
+  margin: 0 auto;
+  padding-bottom: 1em;
+  display: inline-block;
+  color: #ecd2a8;
+  cursor: pointer;
+}
+
+.arrow {
+  margin-left: 0.3em;
+  border: solid #ecd2a8;
+  border-width: 0 3px 3px 0;
+  display: inline-block;
+  padding: 3px;
+  margin-bottom: 0.1em;
+  transform: ease-in;
+}
+
+.up {
+  transform: rotate(-135deg);
+  -webkit-transform: rotate(-135deg);
+}
+
+.down {
+  transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+}

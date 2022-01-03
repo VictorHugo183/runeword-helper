@@ -19,7 +19,7 @@ const Card = (props) => {
   if (canMake) {
     if (ladder) {
       return (
-        <div className='rw-card dib br2 pa1 ma2 grow tc bw1 canMake'>
+        <div className='rw-card dib br2 pa1 ma2 tc bw1 canMake'>
           <h2>{title}</h2>
           <p>{runeElements}</p>
           <p className="types">{types}</p>
@@ -31,7 +31,7 @@ const Card = (props) => {
     }
     else {
       return (
-        <div className='rw-card dib br2 pa1 ma2 grow tc bw1 canMake'>
+        <div className='rw-card dib br2 pa1 ma2 tc bw1 canMake'>
           <h2>{title}</h2>
           {/* <p className="runes">{runes}</p> */}
           <p>{runeElements}</p>
@@ -46,7 +46,7 @@ const Card = (props) => {
   else{
     if (ladder) {
       return (
-        <div className='rw-card dib br2 pa1 ma2 grow tc bw1 cantMake'>
+        <div className='rw-card dib br2 pa1 ma2 tc bw1 cantMake'>
           <h2>{title}</h2>
           <p>{runeElements}</p>
           <p className="types">{types}</p>
@@ -58,7 +58,7 @@ const Card = (props) => {
     }
     else {
       return (
-        <div className='rw-card dib br2 pa1 ma2 grow tc bw1 cantMake'>
+        <div className='rw-card dib br2 pa1 ma2 tc bw1 cantMake'>
           <h2>{title}</h2>
           <p>{runeElements}</p>
           <p className="types">{types}</p>

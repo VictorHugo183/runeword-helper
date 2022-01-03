@@ -77,7 +77,7 @@ export const filterMissileWeapons = (selectedFilters, runewords) => {
 }
 
 export const filterAxes = (selectedFilters, runewords) => {
-  if (selectedFilters['All Weapons'] === true) { return runewords }
+  if (selectedFilters['All Weapons'] === true || selectedFilters['Melee Weapons'] === true) { return runewords }
   if (selectedFilters['Axes'] === true) {
     return runewords.filter(item => {
       return item.ttypes.includes("Axes")
@@ -88,7 +88,7 @@ export const filterAxes = (selectedFilters, runewords) => {
 }
 
 export const filterClaws = (selectedFilters, runewords) => {
-  if (selectedFilters['All Weapons'] === true) { return runewords }
+  if (selectedFilters['All Weapons'] === true || selectedFilters['Melee Weapons'] === true) { return runewords }
   if (selectedFilters['Claws'] === true) {
     return runewords.filter(item => {
       return item.ttypes.includes("Claws")
@@ -99,7 +99,7 @@ export const filterClaws = (selectedFilters, runewords) => {
 }
 
 export const filterClubs = (selectedFilters, runewords) => {
-  if (selectedFilters['All Weapons'] === true) { return runewords }
+  if (selectedFilters['All Weapons'] === true || selectedFilters['Melee Weapons'] === true) { return runewords }
   if (selectedFilters['Clubs'] === true) {
     return runewords.filter(item => {
       return item.ttypes.includes("Clubs")
@@ -110,7 +110,7 @@ export const filterClubs = (selectedFilters, runewords) => {
 }
 
 export const filterHammers = (selectedFilters, runewords) => {
-  if (selectedFilters['All Weapons'] === true) { return runewords }
+  if (selectedFilters['All Weapons'] === true || selectedFilters['Melee Weapons'] === true) { return runewords }
   if (selectedFilters['Hammers'] === true) {
     return runewords.filter(item => {
       return item.ttypes.includes("Hammers")
@@ -120,7 +120,7 @@ export const filterHammers = (selectedFilters, runewords) => {
   }
 }
 export const filterMaces = (selectedFilters, runewords) => {
-  if (selectedFilters['All Weapons'] === true) { return runewords }
+  if (selectedFilters['All Weapons'] === true || selectedFilters['Melee Weapons'] === true) { return runewords }
   if (selectedFilters['Maces'] === true) {
     return runewords.filter(item => {
       return item.ttypes.includes("Maces")
@@ -131,7 +131,7 @@ export const filterMaces = (selectedFilters, runewords) => {
 }
 
 export const filterPolearms = (selectedFilters, runewords) => {
-  if (selectedFilters['All Weapons'] === true) { return runewords }
+  if (selectedFilters['All Weapons'] === true || selectedFilters['Melee Weapons'] === true) { return runewords }
   if (selectedFilters['Polearms'] === true) {
     return runewords.filter(item => {
       return item.ttypes.includes("Polearms")
@@ -142,10 +142,43 @@ export const filterPolearms = (selectedFilters, runewords) => {
 }
 
 export const filterScepters = (selectedFilters, runewords) => {
-  if (selectedFilters['All Weapons'] === true) { return runewords }
+  if (selectedFilters['All Weapons'] === true || selectedFilters['Melee Weapons'] === true) { return runewords }
   if (selectedFilters['Scepters'] === true) {
     return runewords.filter(item => {
       return item.ttypes.includes("Scepters")
+    })
+  } else {
+    return runewords;
+  }
+}
+
+export const filterStaves = (selectedFilters, runewords) => {
+  if (selectedFilters['All Weapons'] === true || selectedFilters['Melee Weapons'] === true) { return runewords }
+  if (selectedFilters['Staves'] === true) {
+    return runewords.filter(item => {
+      return item.ttypes.includes("Staves")
+    })
+  } else {
+    return runewords;
+  }
+}
+
+export const filterSwords = (selectedFilters, runewords) => {
+  if (selectedFilters['All Weapons'] === true || selectedFilters['Melee Weapons'] === true) { return runewords }
+  if (selectedFilters['Swords'] === true) {
+    return runewords.filter(item => {
+      return item.ttypes.includes("Swords")
+    })
+  } else {
+    return runewords;
+  }
+}
+
+export const filterWands = (selectedFilters, runewords) => {
+  if (selectedFilters['All Weapons'] === true || selectedFilters['Melee Weapons'] === true) { return runewords }
+  if (selectedFilters['Wands'] === true) {
+    return runewords.filter(item => {
+      return item.ttypes.includes("Wands")
     })
   } else {
     return runewords;

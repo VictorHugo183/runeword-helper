@@ -3,3 +3,47 @@
   flex-wrap: wrap;
   justify-content: center
 }
+
+.socketFilters{
+  margin-bottom: 0.5em;
+}
+
+.armorFilters{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.weaponFilters{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.filterLabel{
+  display: inline-block;
+  border-bottom: solid #ccc;
+  border-width: 1px;
+  margin-bottom: 0.5em;
+}
+
+.socketButton{
+  margin-right: 0.9em;
+  cursor: pointer;
+}
+
+input[type=radio]{
+  cursor: pointer;
+}
+
+input[type=checkbox]{
+  cursor: pointer;
+}
+
+.filterButton{
+  cursor: pointer;
+}
+
+.golden{
+  color: #ecd2a8;
+}
