@@ -5,17 +5,17 @@ const Rune = (props) =>{
   const {name, runeSelect, selectedRunes} = props;
   let className= "";
   if (selectedRunes[name] === false) {
-     className = "pa2 not-selected rune";
+     className = `pa2 ${name}-not-selected rune`;
   }
   else {
-     className = " pa2 selected rune";
+     className = `pa2 ${name}-selected rune`;
   }
   return(
       <span 
       className={`${className}`}
       onClick={() => runeSelect(name)}
       >
-        {name}
+        <span className="label">{name}</span>
       </span>
   );
 }

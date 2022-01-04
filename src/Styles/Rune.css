@@ -1,16 +1,347 @@
 .rune{
   cursor:pointer;
   margin-right: 0.2em;
+  margin-top: -0.5em;
 }
 
-.selected{
-/*   border: 1px solid rgba(230, 178, 7, 0.5);
+.label{
+  display: inline-block;
+  position: relative;
+  top: 25px;
+  margin-bottom: 0.8em;
+}
+
+/* border: 1px solid rgba(230, 178, 7, 0.5);
   border-radius: 2px; */
+
+/* Individual Rune Styles: */
+
+.El-selected{
   color: #fff;
-  background: url("../../public/rune.png") no-repeat 50%;
+  background: url("../../public/Rune Images/elRune.png") no-repeat 50%;
 }
 
-.not-selected{
+.El-not-selected{
   color: #777;
-  background: url("../../public/dimRune.png") no-repeat 50%;
+  background: url("../../public/Rune Images/elRuneDim.png") no-repeat 50%;
+}
+
+.Eld-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/eldRune.png") no-repeat 50%;
+}
+
+.Eld-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/eldRuneDim.png") no-repeat 50%;
+}
+
+.Tir-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/tirRune.png") no-repeat 50%;
+}
+
+.Tir-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/tirRuneDim.png") no-repeat 50%;
+}
+
+.Nef-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/nefRune.png") no-repeat 50%;
+}
+
+.Nef-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/nefRuneDim.png") no-repeat 50%;
+}
+
+.Eth-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/ethRune.png") no-repeat 50%;
+}
+
+.Eth-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/ethRuneDim.png") no-repeat 50%;
+}
+
+.Ith-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/ithRune.png") no-repeat 50%;
+}
+
+.Ith-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/ithRuneDim.png") no-repeat 50%;
+}
+
+.Tal-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/talRune.png") no-repeat 50%;
+}
+
+.Tal-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/talRuneDim.png") no-repeat 50%;
+}
+
+.Ral-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/ralRune.png") no-repeat 50%;
+}
+
+.Ral-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/ralRuneDim.png") no-repeat 50%;
+}
+
+.Ort-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/ortRune.png") no-repeat 50%;
+}
+
+.Ort-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/ortRuneDim.png") no-repeat 50%;
+}
+
+.Thul-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/thulRune.png") no-repeat 50%;
+}
+
+.Thul-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/thulRuneDim.png") no-repeat 50%;
+}
+
+.Amn-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/amnRune.png") no-repeat 50%;
+}
+
+.Amn-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/amnRuneDim.png") no-repeat 50%;
+}
+
+.Sol-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/solRune.png") no-repeat 50%;
+}
+
+.Sol-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/solRuneDim.png") no-repeat 50%;
+}
+
+.Shael-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/shaelRune.png") no-repeat 50%;
+}
+
+.Shael-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/shaelRuneDim.png") no-repeat 50%;
+}
+
+.Dol-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/dolRune.png") no-repeat 50%;
+}
+
+.Dol-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/dolRuneDim.png") no-repeat 50%;
+}
+
+.Hel-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/helRune.png") no-repeat 50%;
+}
+
+.Hel-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/helRuneDim.png") no-repeat 50%;
+}
+
+.Io-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/ioRune.png") no-repeat 50%;
+}
+
+.Io-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/ioRuneDim.png") no-repeat 50%;
+}
+
+.Lum-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/lumRune.png") no-repeat 50%;
+}
+
+.Lum-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/lumRuneDim.png") no-repeat 50%;
+}
+
+.Ko-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/koRune.png") no-repeat 50%;
+}
+
+.Ko-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/koRuneDim.png") no-repeat 50%;
+}
+
+.Fal-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/falRune.png") no-repeat 50%;
+}
+
+.Fal-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/falRuneDim.png") no-repeat 50%;
+}
+
+.Lem-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/lemRune.png") no-repeat 50%;
+}
+
+.Lem-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/lemRuneDim.png") no-repeat 50%;
+}
+
+.Pul-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/pulRune.png") no-repeat 50%;
+}
+
+.Pul-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/pulRuneDim.png") no-repeat 50%;
+}
+
+.Um-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/umRune.png") no-repeat 50%;
+}
+
+.Um-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/umRuneDim.png") no-repeat 50%;
+}
+
+.Mal-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/malRune.png") no-repeat 50%;
+}
+
+.Mal-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/malRuneDim.png") no-repeat 50%;
+}
+
+.Ist-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/istRune.png") no-repeat 50%;
+}
+
+.Ist-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/istRuneDim.png") no-repeat 50%;
+}
+
+.Gul-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/gulRune.png") no-repeat 50%;
+}
+
+.Gul-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/gulRuneDim.png") no-repeat 50%;
+}
+
+.Vex-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/vexRune.png") no-repeat 50%;
+}
+
+.Vex-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/vexRuneDim.png") no-repeat 50%;
+}
+
+.Ohm-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/ohmRune.png") no-repeat 50%;
+}
+
+.Ohm-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/ohmRuneDim.png") no-repeat 50%;
+}
+
+.Lo-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/loRune.png") no-repeat 50%;
+}
+
+.Lo-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/loRuneDim.png") no-repeat 50%;
+}
+
+.Sur-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/surRune.png") no-repeat 50%;
+}
+
+.Sur-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/surRuneDim.png") no-repeat 50%;
+}
+
+.Ber-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/berRune.png") no-repeat 50%;
+}
+
+.Ber-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/berRuneDim.png") no-repeat 50%;
+}
+
+.Jah-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/jahRune.png") no-repeat 50%;
+}
+
+.Jah-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/jahRuneDim.png") no-repeat 50%;
+}
+
+.Cham-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/chamRune.png") no-repeat 50%;
+}
+
+.Cham-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/chamRuneDim.png") no-repeat 50%;
+}
+
+.Zod-selected{
+  color: #fff;
+  background: url("../../public/Rune Images/zodRune.png") no-repeat 50%;
+}
+
+.Zod-not-selected{
+  color: #777;
+  background: url("../../public/Rune Images/zodRuneDim.png") no-repeat 50%;
 }

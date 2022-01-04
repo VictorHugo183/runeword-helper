@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from './Card';
+import '../Styles/CardList.css'
 
 const CardList = (props) => {
   const {trueRunewords, falseRunewords, runewordsDesc, searchInput, selectedRunes} = props;
