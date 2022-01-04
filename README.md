@@ -5,7 +5,7 @@
 </p>
 
 <p align="center" class="bg-red">
-  <img width="600" src="https://user-images.githubusercontent.com/60555502/146818011-4345d2d2-7419-4a95-bc35-987597166d61.png" />
+  <img width="600" src="https://user-images.githubusercontent.com/60555502/148111370-37cae89f-1247-41ff-87a2-a4fc288241d3.png" />
 </p>
 
 <p align="center"><em>An application to help you visualize what Runewords you can make with the current Runes you own in Diablo 2.</em></p>
