@@ -693,35 +693,30 @@ const runewordsDesc = {
   `,
 
   Fortitude: `
-  Weapons:
+  Both:
 
   20% Chance To Cast Level 15 Chilling Armor when Struck
   +25% Faster Cast Rate
   +300% Enhanced Damage
+  +200% Enhanced Defense
+  +((8-12)*0.125*Clvl) To Life
+  All Resistances +25-30 (varies)
+  12% Damage Taken Goes To Mana
+  +1 To Light Radius
+
+  Weapons:
+
   +9 To Minimum Damage
   +50 To Attack Rating
   20% Deadly Strike
   Hit Causes Monster To Flee 25%
-  +200% Enhanced Defense
-  +X To Life (Based on Character Level)*
-  All Resistances +25-30 (varies)
-  12% Damage Taken Goes To Mana
-  +1 To Light Radius
 
   Body Armor:
 
-  20% Chance To Cast Level 15 Chilling Armor when Struck
-  +25% Faster Cast Rate
-  +300% Enhanced Damage
-  +200% Enhanced Defense
   +15 Defense
-  +X To Life (Based on Character Level)*
   Replenish Life +7
   +5% To Maximum Lightning Resist
-  All Resistances +25-30 (varies)
   Damage Reduced By 7
-  12% Damage Taken Goes To Mana
-  +1 To Light Radius
   `,
 
   Grief: `
@@ -852,31 +847,27 @@ const runewordsDesc = {
   `,
 
   Phoenix: `
-  Weapons:
+  Both:
 
   100% Chance To Cast level 40 Blaze When You Level-up
   40% Chance To Cast Level 22 Firestorm On Striking
   Level 10-15 Redemption Aura When Equipped (varies)
   +350-400% Enhanced Damage (varies)
-  Ignores Target's Defense
-  14% Mana Stolen Per Hit
   -28% To Enemy Fire Resistance
-  20% Deadly Strike
   +350-400 Defense Vs. Missile (varies)
   +15-21 Fire Absorb (varies)
+
+  Weapons:
+
+  Ignore Target's Defense
+  14% Mana Stolen Per Hit
+  20% Deadly Strike
 
   Shields:
 
-  100% Chance To Cast level 40 Blaze When You Level-up
-  40% Chance To Cast Level 22 Firestorm On Striking
-  Level 10-15 Redemption Aura When Equipped (varies)
-  +350-400 Defense Vs. Missile (varies)
-  +350-400% Enhanced Damage (varies)
-  -28% To Enemy Fire Resistance
   +50 To Life
   +5% To Maximum Lightning Resist
   +10% To Maximum Fire Resist
-  +15-21 Fire Absorb (varies)
   `,
 
   Pride: `
@@ -908,32 +899,27 @@ const runewordsDesc = {
   `,
 
   Spirit: `
-  Weapons:
+  Both:
 
   +2 To All Skills
   +25-35% Faster Cast Rate (varies)
   +55% Faster Hit Recovery
+  +250 Defense Vs. Missile
+  +22 To Vitality
+  +89-112 To Mana (varies)
+  +3-8 Magic Absorb (varies)
+
+  Swords:
   Adds 1-50 Lightning Damage
   Adds 3-14 Cold Damage 3 Second Duration (Normal)
   +75 Poison Damage Over 5 Seconds
   7% Life Stolen Per Hit
-  +250 Defense Vs. Missile
-  +22 To Vitality
-  +89-112 To Mana (varies)
-  +3-8 Magic Absorb (varies)
 
   Shields:
 
-  +2 To All Skills
-  +25-35% Faster Cast Rate (varies)
-  +55% Faster Hit Recovery
-  +250 Defense Vs. Missile
-  +22 To Vitality
-  +89-112 To Mana (varies)
   Cold Resist +35%
   Lightning Resist +35%
   Poison Resist +35%
-  +3-8 Magic Absorb (varies)
   Attacker Takes Damage of 14
   `,
 
