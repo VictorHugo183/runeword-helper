@@ -1,7 +1,7 @@
 # Runeword-helper for Diablo II LoD & Diablo II: Resurrected
 
 <p align="center">
-  Live site: <strong><a href="https://victorhugo183.github.io/runeword-helper/">victorhugo183.github.io/runeword-helper</a></strong>
+  Live site: <strong><a href="https://victorhugo183.github.io/runeword-helper/" target="_blank">victorhugo183.github.io/runeword-helper</a></strong>
 </p>
 
 <p align="center" class="bg-red">
