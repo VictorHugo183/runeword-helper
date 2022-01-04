@@ -12,11 +12,15 @@
 <p align="center"><em>LoD mode: display data for Diablo II: LoD v1.14</em></p>
 <p align="center"><em>D2R mode: display data for Diablo II: Resurrected Patch 2.3</em></p>
 
+### Mobile support:
+This website was designed to provide a good mobile experience, as there will be many players who won't be playing Diablo II: Resurrected on PC.
+
+On iPhones you may add the App to your homescreen from Safari, via the share button -> Add to homescreen.
+
 ## Development Notes
 
-This is a React.js project, which uses a Class Component to handle state and passes state down to Functional Child Components.
+This project was built using modern Javascript and React.js
 
 Runeword-helper uses localStorage to maintain selected runes and display mode preference. if the user clears "Cookie & other site related data" manually in their browser, the user state will be reset.
 
 The data is static and saved locally, I'll do my best to keep it updated with the latest D2R patch.
-
