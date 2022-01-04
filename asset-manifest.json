@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/runeword-helper/static/css/main.77dc9e90.css",
-    "main.js": "/runeword-helper/static/js/main.9db2166e.js",
+    "main.css": "/runeword-helper/static/css/main.50084546.css",
+    "main.js": "/runeword-helper/static/js/main.600db586.js",
     "static/js/787.ace372f7.chunk.js": "/runeword-helper/static/js/787.ace372f7.chunk.js",
     "service-worker.js": "/runeword-helper/service-worker.js",
     "static/media/githubLogo.png": "/runeword-helper/static/media/githubLogo.5f0a0c6827cfdd7dbb58.png",
     "index.html": "/runeword-helper/index.html",
-    "main.77dc9e90.css.map": "/runeword-helper/static/css/main.77dc9e90.css.map",
-    "main.9db2166e.js.map": "/runeword-helper/static/js/main.9db2166e.js.map",
+    "main.50084546.css.map": "/runeword-helper/static/css/main.50084546.css.map",
+    "main.600db586.js.map": "/runeword-helper/static/js/main.600db586.js.map",
     "787.ace372f7.chunk.js.map": "/runeword-helper/static/js/787.ace372f7.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.77dc9e90.css",
-    "static/js/main.9db2166e.js"
+    "static/css/main.50084546.css",
+    "static/js/main.600db586.js"
   ]
 }
