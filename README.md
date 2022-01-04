@@ -9,8 +9,8 @@
 </p>
 
 <p align="center"><em>An application to help you visualize what Runewords you can make with the current Runes you own in Diablo 2.</em></p>
-<p align="center"><em>LoD mode: display data for for Diablo II LoD v1.14</em></p>
-<p align="center"><em>D2R mode: display data for Diablo II Resurrected Patch 2.3</em></p>
+<p align="center"><em>LoD mode: display data for Diablo II: LoD v1.14</em></p>
+<p align="center"><em>D2R mode: display data for Diablo II: Resurrected Patch 2.3</em></p>
 
 ## Development Notes
 
