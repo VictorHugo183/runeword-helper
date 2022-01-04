@@ -146,22 +146,11 @@ class App extends React.Component{
     this.setState({socketValue : event.target.value});
   }
 
-  //old filter function before using external helper functions
-  /*  filterHelms = (runewords) => {
-     if (this.state.selectedFilters['All Armor'] === true) { return runewords }
-     if (this.state.selectedFilters['Helms'] === true) {
-       return runewords.filter(item => {
-         return item.ttypes.includes("Helms")
-       })
-     } else {
-       return runewords;
-     }
-   } */
-
   render(){
     const runeNames = runes.map(rune => rune.name);
     let filteredRW;
 
+    //decide whether to use LoD or D2R runeword data
     let originalRunewords;
     if(this.state.activatedD2R){
       originalRunewords = this.state.d2rRunewords;
@@ -169,6 +158,7 @@ class App extends React.Component{
       originalRunewords = this.state.runewords;
     }
 
+    //run sockets filter before running any other filter
     if(this.state.socketValue !== 'Any'){
       let value = Number(this.state.socketValue);
       originalRunewords = originalRunewords.filter(item =>{
@@ -178,8 +168,7 @@ class App extends React.Component{
 
     let allFiltered = [];
     //if a filter is not applied, the filter function will return the original runeword, if that happens we don't need to push it to the allFiltered array
-    //old way when there were filter methods and not external filter functions:
-    /* if (originalRunewords !== this.filterAllArmor(originalRunewords)) { allFiltered.push(this.filterAllArmor(originalRunewords)); } */
+    //filter functions are imported from filterFunctions.js
 
     if (originalRunewords !== filterAllArmor(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterAllArmor(this.state.selectedFilters, originalRunewords)); }
     if (originalRunewords !== filterBodyArmors(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterBodyArmors(this.state.selectedFilters,originalRunewords));}
@@ -203,15 +192,15 @@ class App extends React.Component{
     //remove all duplicate entries in the array of objects allFiltered
     const noDuplicatesFiltered = allFiltered.flat().filter((item,i,arr) =>{
       return i === arr.findIndex((element) => (element.title === item.title))
-    }
-    )
+    })
+
     //Alternative to the above, Map will be more efficient for larger arrays but will not preserve order.
     /*const test = [...new Map(allFiltered.flat().map(item => [JSON.stringify([item.title]), item])).values()] */
 
     //sort the filtered results alphabetically
     noDuplicatesFiltered.sort((a, b) => a.title.localeCompare(b.title));
 
-    //if all filters are false: display all runewords, if any filter is applied display equipment filtered runewords
+    //if all filters are false: display all runewords, if any filter is applied display filtered runewords
     if(Object.values(this.state.selectedFilters).every(item => item === false)){
       filteredRW = this.filterRunes(originalRunewords);
     } else{
@@ -243,7 +232,7 @@ class App extends React.Component{
           <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
           <CardList searchInput={this.state.searchfield} trueRunewords={filteredRW[0]} falseRunewords={filteredRW[1]}
            runewordsDesc={d2rRunewordsDesc} selectedRunes={this.state.selectedRunes}/>
-          <ScrollToTop smooth style={{ backgroundColor: "#777", right: "0.5em" }} color="262626" viewBox="0 0 255 255" preserveAspectRatio="none"/>
+          <ScrollToTop smooth style={{ backgroundColor: "transparent", boxShadow:"none", right: "0.8em" }} color="#fff" viewBox="0 0 255 255" preserveAspectRatio="none"/>
           <Footer />
         </div>
       );
@@ -270,7 +259,7 @@ class App extends React.Component{
           <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
           <CardList searchInput={this.state.searchfield} trueRunewords={filteredRW[0]} falseRunewords={filteredRW[1]}
            runewordsDesc={runewordsDesc} selectedRunes={this.state.selectedRunes} />
-          <ScrollToTop smooth style={{ backgroundColor: "#777", right: "0.5em" }} color="262626" viewBox="0 0 255 255" preserveAspectRatio="none"/>
+          <ScrollToTop smooth style={{ backgroundColor: "transparent", boxShadow: "none", right: "0.8em" }} color="#fff" viewBox="0 0 255 255" preserveAspectRatio="none" />
           <Footer />
         </div>
       )

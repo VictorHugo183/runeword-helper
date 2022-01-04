@@ -14,6 +14,7 @@ const FilterList = (props) => {
         <label className="socketButton"><input value="5" onChange={onSocketChange} checked={socketValue === "5"} type="radio" /> 5</label>
         <label className="socketButton"><input value="6" onChange={onSocketChange} checked={socketValue === "6"} type="radio" /> 6</label>
       </div>
+      
       <div className="light-gray filterLabel">Equipment</div>
       <div className="filtersContainer">
         <div className="armorFilters">
