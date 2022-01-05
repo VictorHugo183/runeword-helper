@@ -5,8 +5,8 @@ const SearchBox = ({searchChange}) =>{
   return(
     <div className="pa2">
       <input 
-      className="searchBox"
       type="search"
+      id="searchBox"
       placeholder="search runewords"
       onChange={searchChange}
       />
