@@ -15,12 +15,15 @@
 ### Mobile support:
 This website was designed to provide a good mobile experience, as there will be many players who won't be playing Diablo II: Resurrected on PC.
 
-On iPhones you may add the App to your homescreen from Safari, via the share button -> Add to homescreen.
+On iPhones you may add the App to your homescreen from Safari, via the share button -> Add to homescreen.<br>
+To make sure the app is up to date, close and re-open the app.
 
 ## Development Notes
 
 This project was built using modern Javascript and React.js
 
 Runeword-helper uses localStorage to maintain selected runes and display mode preference. if the user clears "Cookie & other site related data" manually in their browser, the user state will be reset.
+
+The App uses Service Workers so that it may be downloaded and retain its functionality if internet connection is disrupted. New version updates require closing and re-opening the app / browser tab.
 
 The data is static and saved locally, I'll do my best to keep it updated with the latest D2R patch.
