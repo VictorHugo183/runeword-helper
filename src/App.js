@@ -246,7 +246,6 @@ class App extends React.Component{
       filteredRW = this.filterRunes(originalRunewords);
     } else{
       filteredRW = this.filterRunes(noDuplicatesFiltered);
-      console.log(noDuplicatesFiltered)
     }
 
     const filterBtnText = this.state.filterListVisible ? "Hide Filters" : "More Filters";
