@@ -15,7 +15,7 @@ const Rune = (props) =>{
       className={`${className}`}
       onClick={() => runeSelect(name)}
       >
-        <span className="label">{name}</span>
+      <span className="label">{name}</span>
       </span>
   );
 }

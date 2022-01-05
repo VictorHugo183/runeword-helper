@@ -71,6 +71,7 @@ class App extends React.Component{
     this.setState({searchfield: event.target.value})
   }
 
+  //toggle the state of the clicked Rune to true or false
   onRuneSelect = (value) => {
     if(this.state.selectedRunes[value] === false){
       this.setState(prevState => ({
@@ -91,8 +92,10 @@ class App extends React.Component{
   }
 
   selectAll = () => {
-    for(let i in this.state.selectedRunes){this.setState(prevState => ({selectedRunes:{...prevState.selectedRunes, [i] : true}}));
-  }}
+    for(let i in this.state.selectedRunes){
+      this.setState(prevState => ({selectedRunes:{...prevState.selectedRunes, [i] : true}}));
+    }
+  }
 
   deselectAll = () => {
     for (let i in this.state.selectedRunes) {
@@ -166,30 +169,68 @@ class App extends React.Component{
       })
     }
 
-    let allFiltered = [];
     //if a filter is not applied, the filter function will return the original runeword, if that happens we don't need to push it to the allFiltered array
-    //filter functions are imported from filterFunctions.js
-
-    if (originalRunewords !== filterAllArmor(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterAllArmor(this.state.selectedFilters, originalRunewords)); }
-    if (originalRunewords !== filterBodyArmors(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterBodyArmors(this.state.selectedFilters,originalRunewords));}
-    if (originalRunewords !== filterHelms(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterHelms(this.state.selectedFilters, originalRunewords));}
-    if (originalRunewords !== filterShields(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterShields(this.state.selectedFilters, originalRunewords));}
-
-    if (originalRunewords !== filterAllWeapons(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterAllWeapons(this.state.selectedFilters, originalRunewords));}
-    if (originalRunewords !== filterMeleeWeapons(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterMeleeWeapons(this.state.selectedFilters, originalRunewords));}
-    if (originalRunewords !== filterMissileWeapons(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterMissileWeapons(this.state.selectedFilters, originalRunewords));}
-    if (originalRunewords !== filterAxes(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterAxes(this.state.selectedFilters, originalRunewords));}
-    if (originalRunewords !== filterClaws(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterClaws(this.state.selectedFilters, originalRunewords));}
-    if (originalRunewords !== filterClubs(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterClubs(this.state.selectedFilters, originalRunewords));}
-    if (originalRunewords !== filterHammers(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterHammers(this.state.selectedFilters, originalRunewords));}
-    if (originalRunewords !== filterMaces(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterMaces(this.state.selectedFilters, originalRunewords));}
-    if (originalRunewords !== filterPolearms(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterPolearms(this.state.selectedFilters, originalRunewords));}
-    if (originalRunewords !== filterScepters(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterScepters(this.state.selectedFilters, originalRunewords));}
-    if (originalRunewords !== filterStaves(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterStaves(this.state.selectedFilters, originalRunewords));}
-    if (originalRunewords !== filterSwords(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterSwords(this.state.selectedFilters, originalRunewords));}
-    if (originalRunewords !== filterWands(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterWands(this.state.selectedFilters, originalRunewords));}
+    //filter functions are imported from filterFunctions.js, only run filter functions if there is one or more filter applied.
+    //Old way of filtering without using filterResult variable. (required two function calls per filter instead of one)
+    /*if (originalRunewords !== filterBodyArmors(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterBodyArmors(this.state.selectedFilters, originalRunewords)); } */
+    let allFiltered = [];
+    let filterResult;
     
-    //remove all duplicate entries in the array of objects allFiltered
+    if (Object.values(this.state.selectedFilters).some(item => item === true)) {
+
+      filterResult = filterAllArmor(this.state.selectedFilters, originalRunewords);
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterBodyArmors(this.state.selectedFilters, originalRunewords);
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterHelms(this.state.selectedFilters, originalRunewords);
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterShields(this.state.selectedFilters, originalRunewords);
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterAllWeapons(this.state.selectedFilters, originalRunewords)
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterMeleeWeapons(this.state.selectedFilters, originalRunewords);
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterMissileWeapons(this.state.selectedFilters, originalRunewords);
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterAxes(this.state.selectedFilters, originalRunewords);
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterClaws(this.state.selectedFilters, originalRunewords);
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterClubs(this.state.selectedFilters, originalRunewords)
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterHammers(this.state.selectedFilters, originalRunewords)
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterMaces(this.state.selectedFilters, originalRunewords)
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterPolearms(this.state.selectedFilters, originalRunewords)
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterScepters(this.state.selectedFilters, originalRunewords)
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterStaves(this.state.selectedFilters, originalRunewords)
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterSwords(this.state.selectedFilters, originalRunewords)
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+
+      filterResult = filterWands(this.state.selectedFilters, originalRunewords)
+      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+    }
+    
+    //flatten and remove all duplicate entries in the array of objects allFiltered
     const noDuplicatesFiltered = allFiltered.flat().filter((item,i,arr) =>{
       return i === arr.findIndex((element) => (element.title === item.title))
     })
@@ -205,6 +246,7 @@ class App extends React.Component{
       filteredRW = this.filterRunes(originalRunewords);
     } else{
       filteredRW = this.filterRunes(noDuplicatesFiltered);
+      console.log(noDuplicatesFiltered)
     }
 
     const filterBtnText = this.state.filterListVisible ? "Hide Filters" : "More Filters";
