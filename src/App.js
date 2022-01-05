@@ -175,59 +175,59 @@ class App extends React.Component{
     /*if (originalRunewords !== filterBodyArmors(this.state.selectedFilters, originalRunewords)) { allFiltered.push(filterBodyArmors(this.state.selectedFilters, originalRunewords)); } */
     let allFiltered = [];
     let filterResult;
-    
+
     if (Object.values(this.state.selectedFilters).some(item => item === true)) {
 
       filterResult = filterAllArmor(this.state.selectedFilters, originalRunewords);
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterBodyArmors(this.state.selectedFilters, originalRunewords);
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterHelms(this.state.selectedFilters, originalRunewords);
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterShields(this.state.selectedFilters, originalRunewords);
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterAllWeapons(this.state.selectedFilters, originalRunewords)
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterMeleeWeapons(this.state.selectedFilters, originalRunewords);
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterMissileWeapons(this.state.selectedFilters, originalRunewords);
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterAxes(this.state.selectedFilters, originalRunewords);
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterClaws(this.state.selectedFilters, originalRunewords);
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterClubs(this.state.selectedFilters, originalRunewords)
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterHammers(this.state.selectedFilters, originalRunewords)
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterMaces(this.state.selectedFilters, originalRunewords)
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterPolearms(this.state.selectedFilters, originalRunewords)
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterScepters(this.state.selectedFilters, originalRunewords)
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterStaves(this.state.selectedFilters, originalRunewords)
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterSwords(this.state.selectedFilters, originalRunewords)
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
 
       filterResult = filterWands(this.state.selectedFilters, originalRunewords)
-      if (originalRunewords !== filterResult) { allFiltered.push(filterResult); }
+      if (filterResult) { allFiltered.push(filterResult); }
     }
     
     //flatten and remove all duplicate entries in the array of objects allFiltered
