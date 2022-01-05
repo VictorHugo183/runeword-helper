@@ -19,7 +19,6 @@
     }
   ],
   "start_url": ".",
-  "scope": "https://victorhugo183.github.io/runeword-helper/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
