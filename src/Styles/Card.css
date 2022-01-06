@@ -1,3 +1,4 @@
+/* white-space:pre-wrap is important, it preserves the linebreaks in our runeword descriptions textss*/
 p{
   display:flexbox;
   flex-wrap:wrap;

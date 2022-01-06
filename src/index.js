@@ -26,6 +26,10 @@ serviceWorkerRegistration.register({
   }
 });
 
+/* The latest version of the ServiceWorker.ts register()function accepts a config object with a callback function where we can handle upgrading. If we post a message SKIP_WAITING this tells the service worker to stop waiting and to go ahead and load the new content after the next refresh.
+
+The reason this postMessage function works is because under the hood CRA is using workbox-webpack-plugin which includes a SKIP_WAITING listener. */
+
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
