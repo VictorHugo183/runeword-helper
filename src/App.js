@@ -30,11 +30,11 @@ class App extends React.Component{
       d2rRunewords: d2rRunewords,
       searchfield: '',
       selectedRunes: {
-        El: true, Eld: true, Tir: true, Nef: true, Eth: true, Ith: true, Tal: true,
-        Ral: true, Ort: true, Thul: true, Amn: true, Sol: true, Shael: true,
-        Dol: true, Hel: true, Io: true, Lum: true, Ko: true, Fal: true, Lem: true,
-        Pul: true, Um: true, Mal: true, Ist: true, Gul:true, Vex: true, Ohm: true,
-        Lo: true, Sur:true, Ber: true, Jah:true, Cham: true, Zod:true
+        El: false, Eld: false, Tir: false, Nef: false, Eth: false, Ith: false, Tal: false,
+        Ral: false, Ort: false, Thul: false, Amn: false, Sol: false, Shael: false,
+        Dol: false, Hel: false, Io: false, Lum: false, Ko: false, Fal: false, Lem: false,
+        Pul: false, Um: false, Mal: false, Ist: false, Gul:false, Vex: false, Ohm: false,
+        Lo: false, Sur:false, Ber: false, Jah:false, Cham: false, Zod:false
       },
       activatedD2R : true,
       filterListVisible: false,
