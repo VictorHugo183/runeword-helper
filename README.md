@@ -1,11 +1,11 @@
 # Runeword-helper for Diablo II LoD & Diablo II: Resurrected
 
-<p align="center">
-  Live site: <strong><a href="https://victorhugo183.github.io/runeword-helper/" target="_blank">victorhugo183.github.io/runeword-helper</a></strong>
-</p>
-
 <p align="center" class="bg-red">
   <img width="600" src="https://user-images.githubusercontent.com/60555502/148111370-37cae89f-1247-41ff-87a2-a4fc288241d3.png" />
+</p>
+
+<p align="center">
+  Live site: <strong><a href="https://victorhugo183.github.io/runeword-helper/" target="_blank">victorhugo183.github.io/runeword-helper</a></strong>
 </p>
 
 <p align="center"><em>An application to help you visualize what Runewords you can make with the current Runes you own in Diablo 2.</em></p>
