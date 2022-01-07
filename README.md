@@ -33,7 +33,9 @@ To make sure the app is up to date, close and re-open the app.
 </ul>
 
 ### Updating:
-To make sure you're using the latest version of the app, close the app/browser tab completely and open it again (a refresh might not be enough). If an update occurred you should get a pop-up alert.
+If you're viewing the page on a browser, a refresh should trigger the update, if not then close and re-open all instances of the website.<br>
+If you're using the website as an app, you must close and re-open the app to update.<br>
+If an update occurred you should get a pop-up alert.
 
 The Diablo 2: Resurrected team have announced plans to continually introduce new runewords to the game, as such I will do my best to update the app accordingly.
 
