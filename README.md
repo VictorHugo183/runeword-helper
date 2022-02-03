@@ -27,10 +27,12 @@ To make sure the app is up to date, close and re-open the app.
 ### Offline use:
 <ul>
   <li>If the website is open, it should continue to work even if internet connection is disrupted.</li>
-  <li>It is possible to install the app for offline use:</li><br>
-  <p>- Chrome (Windows): you can simply click the install button at the end of the URL bar, it will create a shortcut on your desktop and start menu, You can also view your installed apps at the following URL: chrome://apps/</p>
-  <p>- iPhone: click the share button, then add to homescreen.</p>
-  <p>- Other devices/browsers: search how to install a PWA (Progressive Web App) on your platform.</p>
+  <li>It is possible to install the app for offline use:</li>
+  <ul>
+    <li> Chrome (Windows): you can simply click the install button at the end of the URL bar, it will create a shortcut on your desktop and start menu, You can also view your installed apps at the following URL: chrome://apps/</li>
+    <li> iPhone: click the share button, then add to homescreen.</li>
+    <li> Other devices/browsers: search how to install a PWA (Progressive Web App) on your platform.</li>
+  </ul>
 </ul>
 
 ### Updating:
