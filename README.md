@@ -1,4 +1,4 @@
-# Runeword-helper for Diablo II LoD & Diablo II: Resurrected
+# <p align="center">Runeword Helper for Diablo II</p>
 
 <p align="center" class="bg-red">
   <img width="600" src="https://user-images.githubusercontent.com/60555502/148111370-37cae89f-1247-41ff-87a2-a4fc288241d3.png" />
@@ -18,7 +18,8 @@ Select D2R mode if you're playing Diablo 2: Resurrected.<br>
 Select LoD mode if you're playing Diablo 2: Lord of Destruction.<br>
 
 ### Mobile support:
-This website was designed to provide a good mobile experience, as there will be many players who won't be playing Diablo II: Resurrected on PC.
+This website was designed to provide a good mobile experience, as there will be many players who will be playing Diablo II: Resurrected on consoles away from their PC,
+or even PC players who don't want to have a browser open while gaming.
 
 On iPhone you may download the App from Safari, via the share button -> Add to homescreen.<br>
 To make sure the app is up to date, close and re-open the app.
@@ -26,10 +27,12 @@ To make sure the app is up to date, close and re-open the app.
 ### Offline use:
 <ul>
   <li>If the website is open, it should continue to work even if internet connection is disrupted.</li>
-  <li>It is possible to install the app for offline use:</li><br>
-  <p>- Chrome (Windows): you can simply click the install button at the end of the URL bar, it will create a shortcut on your desktop and start menu, You can also view your installed apps at the following URL: chrome://apps/</p>
-  <p>- iPhone: click the share button, then add to homescreen.</p>
-  <p>- Other devices/browsers: search how to install a PWA (Progressive Web App) on your platform.</p>
+  <li>It is possible to install the app for offline use:</li>
+  <ul>
+    <li> Chrome (Windows): you can simply click the install button at the end of the URL bar, it will create a shortcut on your desktop and start menu, You can also view your installed apps at the following URL: chrome://apps/</li>
+    <li> iPhone: click the share button, then add to homescreen.</li>
+    <li> Other devices/browsers: search how to install a PWA (Progressive Web App) on your platform.</li>
+  </ul>
 </ul>
 
 ### Updating:
