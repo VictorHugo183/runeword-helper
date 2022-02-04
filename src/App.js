@@ -14,16 +14,18 @@ import Footer from './Components/Footer';
 import ModeToggle from './Components/ModeToggle';
 import ScrollToTop from 'react-scroll-to-top';
 import FilterList from './Components/FilterList';
-import {filterHelms, filterShields, filterBodyArmors, filterAllArmor, filterAllWeapons, filterMeleeWeapons,
-filterMissileWeapons, filterAxes, filterClaws, filterClubs, filterHammers, filterMaces, filterPolearms, filterScepters,
-filterStaves, filterSwords, filterWands} from './Helpers/filterFunctions';
+import {
+  filterHelms, filterShields, filterBodyArmors, filterAllArmor, filterAllWeapons, filterMeleeWeapons,
+  filterMissileWeapons, filterAxes, filterClaws, filterClubs, filterHammers, filterMaces, filterPolearms, filterScepters,
+  filterStaves, filterSwords, filterWands
+} from './Helpers/filterFunctions';
 
 /* sort runewords alphabetically, runewords were originally organized by which patch introduced them, but for this app that is unnecessary */
-runewords.sort((a,b) => a.title.localeCompare(b.title));
-d2rRunewords.sort((a,b) => a.title.localeCompare(b.title));
+runewords.sort((a, b) => a.title.localeCompare(b.title));
+d2rRunewords.sort((a, b) => a.title.localeCompare(b.title));
 
-class App extends React.Component{
-  constructor(){
+class App extends React.Component {
+  constructor() {
     super();
     this.state = {
       runewords: runewords,
@@ -33,47 +35,47 @@ class App extends React.Component{
         El: false, Eld: false, Tir: false, Nef: false, Eth: false, Ith: false, Tal: false,
         Ral: false, Ort: false, Thul: false, Amn: false, Sol: false, Shael: false,
         Dol: false, Hel: false, Io: false, Lum: false, Ko: false, Fal: false, Lem: false,
-        Pul: false, Um: false, Mal: false, Ist: false, Gul:false, Vex: false, Ohm: false,
-        Lo: false, Sur:false, Ber: false, Jah:false, Cham: false, Zod:false
+        Pul: false, Um: false, Mal: false, Ist: false, Gul: false, Vex: false, Ohm: false,
+        Lo: false, Sur: false, Ber: false, Jah: false, Cham: false, Zod: false
       },
-      activatedD2R : true,
+      activatedD2R: true,
       filterListVisible: false,
       selectedFilters: {
-        'All Armor':false, 'Body Armors': false, 'Helms' : false, 'Shields' : false, 'All Weapons':false, 'Melee Weapons':false,
-        'Missile Weapons':false, 'Axes':false, 'Claws': false, 'Clubs': false, 'Hammers':false, 'Maces':false, 'Polearms':false,
-        'Scepters':false, 'Staves':false, 'Swords': false, 'Wands': false
+        'All Armor': false, 'Body Armors': false, 'Helms': false, 'Shields': false, 'All Weapons': false, 'Melee Weapons': false,
+        'Missile Weapons': false, 'Axes': false, 'Claws': false, 'Clubs': false, 'Hammers': false, 'Maces': false, 'Polearms': false,
+        'Scepters': false, 'Staves': false, 'Swords': false, 'Wands': false
       },
       socketValue: 'Any'
     }
   }
   /* this only runs once when the component is first loaded, it will retrieve the state saved on local storage and use it instead of the default state if it exists*/
-  componentDidMount(){
+  componentDidMount() {
     const data = JSON.parse(window.localStorage.getItem('runeword-helper'));
-    if(data){
-      this.setState({selectedRunes: data.selectedRunes});
-      this.setState({activatedD2R: data.activatedD2Rmode});
+    if (data) {
+      this.setState({ selectedRunes: data.selectedRunes });
+      this.setState({ activatedD2R: data.activatedD2Rmode });
     }
   }
 
   /* every time that state changes, this function will run and we'll save state to local storage */
-/*   componentDidUpdate(){
-    window.localStorage.setItem('runeword-helper', JSON.stringify(this.state.selectedRunes));
-  }
- */
-  componentDidUpdate(){
+  /*   componentDidUpdate(){
+      window.localStorage.setItem('runeword-helper', JSON.stringify(this.state.selectedRunes));
+    }
+   */
+  componentDidUpdate() {
     const selectedRunes = this.state.selectedRunes;
     const activatedD2Rmode = this.state.activatedD2R;
-    const valuesToSave = {selectedRunes, activatedD2Rmode};
+    const valuesToSave = { selectedRunes, activatedD2Rmode };
     window.localStorage.setItem('runeword-helper', JSON.stringify(valuesToSave));
   }
 
   onSearchChange = (event) => {
-    this.setState({searchfield: event.target.value})
+    this.setState({ searchfield: event.target.value })
   }
 
   //toggle the state of the clicked Rune to true or false
   onRuneSelect = (value) => {
-    if(this.state.selectedRunes[value] === false){
+    if (this.state.selectedRunes[value] === false) {
       this.setState(prevState => ({
         selectedRunes: {
           ...prevState.selectedRunes,
@@ -81,7 +83,7 @@ class App extends React.Component{
         }
       }));
     }
-    else{
+    else {
       this.setState(prevState => ({
         selectedRunes: {
           ...prevState.selectedRunes,
@@ -92,8 +94,8 @@ class App extends React.Component{
   }
 
   selectAll = () => {
-    for(let i in this.state.selectedRunes){
-      this.setState(prevState => ({selectedRunes:{...prevState.selectedRunes, [i] : true}}));
+    for (let i in this.state.selectedRunes) {
+      this.setState(prevState => ({ selectedRunes: { ...prevState.selectedRunes, [i]: true } }));
     }
   }
 
@@ -104,10 +106,10 @@ class App extends React.Component{
   }
 
   modeToggle = () => {
-    if(this.state.activatedD2R === true){
-      this.setState({activatedD2R : false});
+    if (this.state.activatedD2R === true) {
+      this.setState({ activatedD2R: false });
     }
-    else{
+    else {
       this.setState({ activatedD2R: true });
     }
   }
@@ -116,10 +118,10 @@ class App extends React.Component{
   filterRunes = (runewords) => {
     const trueRunewords = [];
     const falseRunewords = [];
-    for(let i = 0; i < runewords.length; i++){
-      if(runewords[i].title.toLowerCase().includes(this.state.searchfield.toLowerCase()) && runewords[i].runes.every(rune => this.state.selectedRunes[rune])){
+    for (let i = 0; i < runewords.length; i++) {
+      if (runewords[i].title.toLowerCase().includes(this.state.searchfield.toLowerCase()) && runewords[i].runes.every(rune => this.state.selectedRunes[rune])) {
         trueRunewords.push(runewords[i]);
-      } else{
+      } else {
         falseRunewords.push(runewords[i]);
       }
     }
@@ -146,25 +148,25 @@ class App extends React.Component{
   }
 
   onSocketChange = (event) => {
-    this.setState({socketValue : event.target.value});
+    this.setState({ socketValue: event.target.value });
   }
 
-  render(){
+  render() {
     const runeNames = runes.map(rune => rune.name);
     let filteredRW;
 
     //decide whether to use LoD or D2R runeword data
     let originalRunewords;
-    if(this.state.activatedD2R){
+    if (this.state.activatedD2R) {
       originalRunewords = this.state.d2rRunewords;
-    } else{
+    } else {
       originalRunewords = this.state.runewords;
     }
 
     //run sockets filter before running any other filter
-    if(this.state.socketValue !== 'Any'){
+    if (this.state.socketValue !== 'Any') {
       let value = Number(this.state.socketValue);
-      originalRunewords = originalRunewords.filter(item =>{
+      originalRunewords = originalRunewords.filter(item => {
         return item.runes.length === value;
       })
     }
@@ -181,57 +183,63 @@ class App extends React.Component{
       filterResult = filterAllArmor(this.state.selectedFilters, originalRunewords);
       if (filterResult) { allFiltered.push(filterResult); }
 
-      filterResult = filterBodyArmors(this.state.selectedFilters, originalRunewords);
-      if (filterResult) { allFiltered.push(filterResult); }
+      if(!this.state.selectedFilters['All Armor']){
+        filterResult = filterBodyArmors(this.state.selectedFilters, originalRunewords);
+        if (filterResult) { allFiltered.push(filterResult); }
 
-      filterResult = filterHelms(this.state.selectedFilters, originalRunewords);
-      if (filterResult) { allFiltered.push(filterResult); }
+        filterResult = filterHelms(this.state.selectedFilters, originalRunewords);
+        if (filterResult) { allFiltered.push(filterResult); }
 
-      filterResult = filterShields(this.state.selectedFilters, originalRunewords);
-      if (filterResult) { allFiltered.push(filterResult); }
+        filterResult = filterShields(this.state.selectedFilters, originalRunewords);
+        if (filterResult) { allFiltered.push(filterResult); }
+      }
 
       filterResult = filterAllWeapons(this.state.selectedFilters, originalRunewords)
       if (filterResult) { allFiltered.push(filterResult); }
 
-      filterResult = filterMeleeWeapons(this.state.selectedFilters, originalRunewords);
-      if (filterResult) { allFiltered.push(filterResult); }
+      if(!this.state.selectedFilters['All Weapons']){
+        filterResult = filterMeleeWeapons(this.state.selectedFilters, originalRunewords);
+        if (filterResult) { allFiltered.push(filterResult); }
 
-      filterResult = filterMissileWeapons(this.state.selectedFilters, originalRunewords);
-      if (filterResult) { allFiltered.push(filterResult); }
+        filterResult = filterMissileWeapons(this.state.selectedFilters, originalRunewords);
+        if (filterResult) { allFiltered.push(filterResult); }
+        
+        if(!this.state.selectedFilters['Melee Weapons']){
+          filterResult = filterAxes(this.state.selectedFilters, originalRunewords);
+          if (filterResult) { allFiltered.push(filterResult); }
 
-      filterResult = filterAxes(this.state.selectedFilters, originalRunewords);
-      if (filterResult) { allFiltered.push(filterResult); }
+          filterResult = filterClaws(this.state.selectedFilters, originalRunewords);
+          if (filterResult) { allFiltered.push(filterResult); }
 
-      filterResult = filterClaws(this.state.selectedFilters, originalRunewords);
-      if (filterResult) { allFiltered.push(filterResult); }
+          filterResult = filterClubs(this.state.selectedFilters, originalRunewords)
+          if (filterResult) { allFiltered.push(filterResult); }
 
-      filterResult = filterClubs(this.state.selectedFilters, originalRunewords)
-      if (filterResult) { allFiltered.push(filterResult); }
+          filterResult = filterHammers(this.state.selectedFilters, originalRunewords)
+          if (filterResult) { allFiltered.push(filterResult); }
 
-      filterResult = filterHammers(this.state.selectedFilters, originalRunewords)
-      if (filterResult) { allFiltered.push(filterResult); }
+          filterResult = filterMaces(this.state.selectedFilters, originalRunewords)
+          if (filterResult) { allFiltered.push(filterResult); }
 
-      filterResult = filterMaces(this.state.selectedFilters, originalRunewords)
-      if (filterResult) { allFiltered.push(filterResult); }
+          filterResult = filterPolearms(this.state.selectedFilters, originalRunewords)
+          if (filterResult) { allFiltered.push(filterResult); }
 
-      filterResult = filterPolearms(this.state.selectedFilters, originalRunewords)
-      if (filterResult) { allFiltered.push(filterResult); }
+          filterResult = filterScepters(this.state.selectedFilters, originalRunewords)
+          if (filterResult) { allFiltered.push(filterResult); }
 
-      filterResult = filterScepters(this.state.selectedFilters, originalRunewords)
-      if (filterResult) { allFiltered.push(filterResult); }
+          filterResult = filterStaves(this.state.selectedFilters, originalRunewords)
+          if (filterResult) { allFiltered.push(filterResult); }
 
-      filterResult = filterStaves(this.state.selectedFilters, originalRunewords)
-      if (filterResult) { allFiltered.push(filterResult); }
+          filterResult = filterSwords(this.state.selectedFilters, originalRunewords)
+          if (filterResult) { allFiltered.push(filterResult); }
 
-      filterResult = filterSwords(this.state.selectedFilters, originalRunewords)
-      if (filterResult) { allFiltered.push(filterResult); }
-
-      filterResult = filterWands(this.state.selectedFilters, originalRunewords)
-      if (filterResult) { allFiltered.push(filterResult); }
+          filterResult = filterWands(this.state.selectedFilters, originalRunewords)
+          if (filterResult) { allFiltered.push(filterResult); }
+        }
+      }
     }
-    
+
     //flatten and remove all duplicate entries in the array of objects allFiltered
-    const noDuplicatesFiltered = allFiltered.flat().filter((item,i,arr) =>{
+    const noDuplicatesFiltered = allFiltered.flat().filter((item, i, arr) => {
       return i === arr.findIndex((element) => (element.title === item.title))
     })
 
@@ -242,69 +250,47 @@ class App extends React.Component{
     noDuplicatesFiltered.sort((a, b) => a.title.localeCompare(b.title));
 
     //if all filters are false: display all runewords, if any filter is applied display filtered runewords
-    if(Object.values(this.state.selectedFilters).every(item => item === false)){
+    if (Object.values(this.state.selectedFilters).every(item => item === false)) {
       filteredRW = this.filterRunes(originalRunewords);
-    } else{
+    } else {
       filteredRW = this.filterRunes(noDuplicatesFiltered);
     }
 
     const filterBtnText = this.state.filterListVisible ? "Hide Filters" : "More Filters";
     const arrowDirection = this.state.filterListVisible ? "arrow up" : "arrow down";
 
-    if(this.state.activatedD2R){
-      return (
-        <div className="tc">
-          <Header />
-          <SearchBox searchChange={this.onSearchChange} />
-          <ModeToggle activatedD2R={this.state.activatedD2R} modeToggle={this.modeToggle} />
-          <SelectButtons selectAll={this.selectAll} deselectAll={this.deselectAll} />
-          <h3 
+    return (
+      <div className="tc">
+        <Header />
+        <SearchBox searchChange={this.onSearchChange} />
+        <ModeToggle activatedD2R={this.state.activatedD2R} modeToggle={this.modeToggle} />
+        <SelectButtons selectAll={this.selectAll} deselectAll={this.deselectAll} />
+        <h3
           className="filterToggle"
           onClick={() => {
-            this.setState({filterListVisible : !this.state.filterListVisible})
+            this.setState({ filterListVisible: !this.state.filterListVisible })
           }}
-          >
-            {filterBtnText}
-            <i className={arrowDirection}></i>
-          </h3>
-          <div style={this.state.filterListVisible ? {} : {display: 'none'}}>
-            <FilterList onFilterChange={this.onFilterChange} socketValue={this.state.socketValue} onSocketChange={this.onSocketChange}/>
-          </div>
-          <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
-          <CardList searchInput={this.state.searchfield} trueRunewords={filteredRW[0]} falseRunewords={filteredRW[1]}
-           runewordsDesc={d2rRunewordsDesc} selectedRunes={this.state.selectedRunes}/>
-          <ScrollToTop smooth style={{ backgroundColor: "transparent", boxShadow:"none", right: "0.8em" }} color="#fff" viewBox="0 0 255 255" preserveAspectRatio="none"/>
-          <Footer />
+        >
+          {filterBtnText}
+          <i className={arrowDirection}></i>
+        </h3>
+        <div style={this.state.filterListVisible ? {} : { display: 'none' }}>
+          <FilterList onFilterChange={this.onFilterChange} socketValue={this.state.socketValue} onSocketChange={this.onSocketChange} />
         </div>
-      );
-    }
-    else{
-      return (
-        <div className="tc">
-          <Header />
-          <SearchBox searchChange={this.onSearchChange} />
-          <ModeToggle activatedD2R={this.state.activatedD2R} modeToggle={this.modeToggle} />
-          <SelectButtons selectAll={this.selectAll} deselectAll={this.deselectAll} />
-          <h3
-            className="filterToggle"
-            onClick={() => {
-              this.setState({ filterListVisible: !this.state.filterListVisible })
-            }}
-          >
-            {filterBtnText}
-            <i className={arrowDirection}></i>
-          </h3>
-          <div style={this.state.filterListVisible ? {} : { display: 'none' }}>
-            <FilterList onFilterChange={this.onFilterChange} socketValue={this.state.socketValue} onSocketChange={this.onSocketChange}/>
-          </div>
-          <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
+        <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
+        {this.state.activatedD2R ?
           <CardList searchInput={this.state.searchfield} trueRunewords={filteredRW[0]} falseRunewords={filteredRW[1]}
-           runewordsDesc={runewordsDesc} selectedRunes={this.state.selectedRunes} />
-          <ScrollToTop smooth style={{ backgroundColor: "transparent", boxShadow: "none", right: "0.8em" }} color="#fff" viewBox="0 0 255 255" preserveAspectRatio="none" />
-          <Footer />
-        </div>
-      )
-    }
+            runewordsDesc={d2rRunewordsDesc} selectedRunes={this.state.selectedRunes}
+          />
+          :
+          <CardList searchInput={this.state.searchfield} trueRunewords={filteredRW[0]} falseRunewords={filteredRW[1]}
+            runewordsDesc={runewordsDesc} selectedRunes={this.state.selectedRunes}
+          />
+        }
+        <ScrollToTop smooth style={{ backgroundColor: "transparent", boxShadow: "none", right: "0.8em" }} color="#fff" viewBox="0 0 255 255" preserveAspectRatio="none" />
+        <Footer />
+      </div>
+    );
   }
 }
 

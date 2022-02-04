@@ -16,58 +16,18 @@ const Card = (props) => {
     }
   }
 
-  if (canMake) {
-    if (ladder) {
-      return (
-        <div className='rw-card dib br2 pa1 ma2 tc bw1 canMake'>
-          <h2>{title}</h2>
-          <p>{runeElements}</p>
-          <p className="types">{types}</p>
-          <p className="level">Required level: {level}</p>
-          <p className="description">{desc}</p>
-          <p className="ladder">Ladder Only</p>
-        </div>
-      );
-    }
-    else {
-      return (
-        <div className='rw-card dib br2 pa1 ma2 tc bw1 canMake'>
-          <h2>{title}</h2>
-          {/* <p className="runes">{runes}</p> */}
-          <p>{runeElements}</p>
-          <p className="types">{types}</p>
-          <p className="level">Required level: {level}</p>
-          <p className="description">{desc}</p>
-        </div>
-      );
-    }
-  }
+  let canMakeClass = canMake ? 'canMake' : 'cantMake';
 
-  else{
-    if (ladder) {
-      return (
-        <div className='rw-card dib br2 pa1 ma2 tc bw1 cantMake'>
-          <h2>{title}</h2>
-          <p>{runeElements}</p>
-          <p className="types">{types}</p>
-          <p className="level">Required level: {level}</p>
-          <p className="description">{desc}</p>
-          <p className="ladder">Ladder Only</p>
-        </div>
-      );
-    }
-    else {
-      return (
-        <div className='rw-card dib br2 pa1 ma2 tc bw1 cantMake'>
-          <h2>{title}</h2>
-          <p>{runeElements}</p>
-          <p className="types">{types}</p>
-          <p className="level">Required level: {level}</p>
-          <p className="description">{desc}</p>
-        </div>
-      );
-    }
-  }
+  return (
+    <div className={`rw-card dib br2 pa1 ma2 tc bw1 ${canMakeClass}`}>
+      <h2>{title}</h2>
+      <p>{runeElements}</p>
+      <p className="types">{types}</p>
+      <p className="level">Required level: {level}</p>
+      <p className="description">{desc}</p>
+      {ladder ? <p className="ladder">Ladder Only</p> : <></>}
+    </div>
+  );
 }
 
 export default Card;
