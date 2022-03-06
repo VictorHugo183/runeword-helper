@@ -47,7 +47,7 @@ export const filterBodyArmors = (selectedFilters, runewords) => {
 export const filterAllWeapons = (selectedFilters, runewords) => {
   if (selectedFilters['All Weapons'] === true) {
     return runewords.filter(item => {
-      return (item.ttypes.includes("Missile Weapons") || item.ttypes.includes("Weapons") || item.ttypes.includes("Melee Weapons") || item.ttypes.includes("Staves") || item.ttypes.includes("Axes") || item.ttypes.includes("Hammers") || item.ttypes.includes("Scepters") || item.ttypes.includes("Clubs") || item.ttypes.includes("Maces") || item.ttypes.includes("Claws") || item.ttypes.includes("Swords") || item.ttypes.includes("Polearms") || item.ttypes.includes("Wands"))
+      return (item.ttypes.includes("Missile Weapons") || item.ttypes.includes("Weapons") || item.ttypes.includes("Melee Weapons") || item.ttypes.includes("Staves") || item.ttypes.includes("Axes") || item.ttypes.includes("Hammers") || item.ttypes.includes("Scepters") || item.ttypes.includes("Clubs") || item.ttypes.includes("Maces") || item.ttypes.includes("Claws") || item.ttypes.includes("Swords") || item.ttypes.includes("Polearms") || item.ttypes.includes("Wands") || item.ttypes.includes("Daggers") || item.ttypes.includes("Spears"))
     })
   } else {
     return false
@@ -58,7 +58,7 @@ export const filterMeleeWeapons = (selectedFilters, runewords) => {
   if (selectedFilters['All Weapons'] === true) { return false }
   if (selectedFilters['Melee Weapons'] === true){
     return runewords.filter(item => {
-      return (item.ttypes.includes("Weapons") || item.ttypes.includes("Melee Weapons") || item.ttypes.includes("Staves") || item.ttypes.includes("Axes") || item.ttypes.includes("Hammers") || item.ttypes.includes("Scepters") || item.ttypes.includes("Clubs") || item.ttypes.includes("Maces") || item.ttypes.includes("Claws") || item.ttypes.includes("Swords") || item.ttypes.includes("Polearms") || item.ttypes.includes("Wands"))
+      return (item.ttypes.includes("Weapons") || item.ttypes.includes("Melee Weapons") || item.ttypes.includes("Staves") || item.ttypes.includes("Axes") || item.ttypes.includes("Hammers") || item.ttypes.includes("Scepters") || item.ttypes.includes("Clubs") || item.ttypes.includes("Maces") || item.ttypes.includes("Claws") || item.ttypes.includes("Swords") || item.ttypes.includes("Polearms") || item.ttypes.includes("Wands") || item.ttypes.includes("Daggers") || item.ttypes.includes("Spears"))
     })
   } else {
     return false
@@ -95,6 +95,17 @@ export const filterClaws = (selectedFilters, runewords) => {
   if (selectedFilters['Claws'] === true) {
     return runewords.filter(item => {
       return (item.ttypes.includes("Claws") || item.ttypes.includes("Melee Weapons") || item.ttypes.includes("Weapons")) && (item.runes.length <= 3)
+    })
+  } else {
+    return false;
+  }
+}
+
+export const filterDaggers = (selectedFilters, runewords) => {
+  if (selectedFilters['All Weapons'] === true || selectedFilters['Melee Weapons'] === true) { return false }
+  if (selectedFilters['Daggers'] === true) {
+    return runewords.filter(item => {
+      return (item.ttypes.includes("Daggers") || item.ttypes.includes("Melee Weapons") || item.ttypes.includes("Weapons")) && (item.runes.length <= 3)
     })
   } else {
     return false;
@@ -149,6 +160,17 @@ export const filterScepters = (selectedFilters, runewords) => {
   if (selectedFilters['Scepters'] === true) {
     return runewords.filter(item => {
       return (item.ttypes.includes("Scepters") || item.ttypes.includes("Melee Weapons") || item.ttypes.includes("Weapons")) && (item.runes.length <= 5)
+    })
+  } else {
+    return false;
+  }
+}
+
+export const filterSpears = (selectedFilters, runewords) => {
+  if (selectedFilters['All Weapons'] === true || selectedFilters['Melee Weapons'] === true) { return false }
+  if (selectedFilters['Spears'] === true) {
+    return runewords.filter(item => {
+      return item.ttypes.includes("Spears") || item.ttypes.includes("Melee Weapons") || item.ttypes.includes("Weapons")
     })
   } else {
     return false;

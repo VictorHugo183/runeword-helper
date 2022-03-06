@@ -17,7 +17,7 @@ import FilterList from './Components/FilterList';
 import {
   filterHelms, filterShields, filterBodyArmors, filterAllArmor, filterAllWeapons, filterMeleeWeapons,
   filterMissileWeapons, filterAxes, filterClaws, filterClubs, filterHammers, filterMaces, filterPolearms, filterScepters,
-  filterStaves, filterSwords, filterWands
+  filterStaves, filterSwords, filterWands, filterDaggers, filterSpears
 } from './Helpers/filterFunctions';
 
 /* sort runewords alphabetically, runewords were originally organized by which patch introduced them, but for this app that is unnecessary */
@@ -43,7 +43,7 @@ class App extends React.Component {
       selectedFilters: {
         'All Armor': false, 'Body Armors': false, 'Helms': false, 'Shields': false, 'All Weapons': false, 'Melee Weapons': false,
         'Missile Weapons': false, 'Axes': false, 'Claws': false, 'Clubs': false, 'Hammers': false, 'Maces': false, 'Polearms': false,
-        'Scepters': false, 'Staves': false, 'Swords': false, 'Wands': false
+        'Scepters': false, 'Staves': false, 'Swords': false, 'Wands': false, 'Daggers': false, 'Spears': false
       },
       socketValue: 'Any'
     }
@@ -211,6 +211,9 @@ class App extends React.Component {
           filterResult = filterClaws(this.state.selectedFilters, originalRunewords);
           if (filterResult) { allFiltered.push(filterResult); }
 
+          filterResult = filterDaggers(this.state.selectedFilters, originalRunewords);
+          if (filterResult) { allFiltered.push(filterResult); }
+
           filterResult = filterClubs(this.state.selectedFilters, originalRunewords)
           if (filterResult) { allFiltered.push(filterResult); }
 
@@ -224,6 +227,9 @@ class App extends React.Component {
           if (filterResult) { allFiltered.push(filterResult); }
 
           filterResult = filterScepters(this.state.selectedFilters, originalRunewords)
+          if (filterResult) { allFiltered.push(filterResult); }
+
+          filterResult = filterSpears(this.state.selectedFilters, originalRunewords)
           if (filterResult) { allFiltered.push(filterResult); }
 
           filterResult = filterStaves(this.state.selectedFilters, originalRunewords)

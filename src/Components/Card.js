@@ -20,12 +20,13 @@ const Card = (props) => {
 
   return (
     <div className={`rw-card dib br2 pa1 ma2 tc bw1 ${canMakeClass}`}>
+      {ladder && <div className="ladder-ribbon">Ladder</div>}
       <h2>{title}</h2>
       <p>{runeElements}</p>
       <p className="types">{types}</p>
       <p className="level">Required level: {level}</p>
       <p className="description">{desc}</p>
-      {ladder ? <p className="ladder">Ladder Only</p> : <></>}
+      {ladder && <p className="ladder">Ladder Only</p>}
     </div>
   );
 }

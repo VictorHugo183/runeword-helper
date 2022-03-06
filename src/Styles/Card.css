@@ -9,6 +9,8 @@ p{
   width: 18em;
   background-color: #262626;
   box-shadow: inset 0 0 7px 0 rgb(0 0 0 / 40%), 0 0 0 1px rgb(255 255 255 / 3%);
+  position: relative;
+  overflow: hidden;
 }
 
 .canMake{
@@ -43,4 +45,21 @@ h2{
 
 .ladder{
   color: #ecd2a8
+}
+
+.ladder-ribbon{
+  background-color: #f44336;
+  color: #fae3ad;
+  position: absolute;
+  top: 0;
+  right: -9px;
+  padding: 0.15rem 3rem;
+  padding-right: 3.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  -webkit-transform: translate(50%,-50%) rotate(45deg) translateY(50px);
+  -moz-transform: translate(50%,-50%) rotate(45deg) translateY(50px);
+  transform: translate(50%, -50%) rotate(45deg) translateY(50px);
 }

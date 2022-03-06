@@ -77,6 +77,12 @@ const FilterList = (props) => {
           </div>
           <div className="filterOption white">
             <label className="filterButton">
+              <input onChange={() => { onFilterChange("Daggers") }} type="checkbox" className="ma2" />
+              Daggers
+            </label>
+          </div>
+          <div className="filterOption white">
+            <label className="filterButton">
               <input onChange={() => { onFilterChange("Clubs") }} type="checkbox" className="ma2" />
               Clubs
             </label>
@@ -103,6 +109,12 @@ const FilterList = (props) => {
             <label className="filterButton">
               <input onChange={() => { onFilterChange("Scepters") }} type="checkbox" className="ma2" />
               Scepters
+            </label>
+          </div>
+          <div className="filterOption white">
+            <label className="filterButton">
+              <input onChange={() => { onFilterChange("Spears") }} type="checkbox" className="ma2" />
+              Spears
             </label>
           </div>
           <div className="filterOption white">

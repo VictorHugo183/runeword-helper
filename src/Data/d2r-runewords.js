@@ -364,13 +364,13 @@ const runewords = [
     title: "Infinity",
     runes: ["Ber", "Mal", "Ber", "Ist"],
     level: 63,
-    ttypes: ["Polearms"],
+    ttypes: ["Polearms", "Spears"],
   },
   {
     title: "Insight",
     runes: ["Ral", "Tir", "Tal", "Sol"],
     level: 27,
-    ttypes: ["Polearms", "Staves"],
+    ttypes: ["Polearms", "Staves", "Missile Weapons"],
   },
   {
     title: "Last Wish",
@@ -394,7 +394,7 @@ const runewords = [
     title: "Obedience",
     runes: ["Hel", "Ko", "Thul", "Eth", "Fal"],
     level: 41,
-    ttypes: ["Polearms"],
+    ttypes: ["Polearms", "Spears"],
   },
   {
     title: "Phoenix",
@@ -406,7 +406,7 @@ const runewords = [
     title: "Pride",
     runes: ["Cham", "Sur", "Io", "Lo"],
     level: 67,
-    ttypes: ["Polearms"],
+    ttypes: ["Polearms", "Spears"],
   },
   {
     title: "Rift",
@@ -481,6 +481,59 @@ const runewords = [
     level: 43,
     ttypes: ["Body Armors"],
     tinfos: "(Assassin)",
+  },
+  /*Diablo 2 Resurrected patch 2.4 Runewords
+    Changes: Insight Runeword is now also available for missile weapons
+    New Runewords: Plague, Pattern, Unbending Will, Wisdom, Obsession, Flickering Flame, Mist
+  */
+  {
+    title: "Plague",
+    runes: ["Cham", "Shael", "Um"],
+    level: 67,
+    ttypes: ["Swords", "Claws", "Daggers"],
+    ladder: true
+  },
+  {
+    title: "Pattern",
+    runes: ["Tal", "Ort", "Thul"],
+    level: 23,
+    ttypes: ["Claws"],
+    ladder: true
+  },
+  {
+    title: "Unbending Will",
+    runes: ["Fal", "Io", "Ith", "Eld", "El", "Hel"],
+    level: 41,
+    ttypes: ["Swords"],
+    ladder: true
+  },
+  {
+    title: "Wisdom",
+    runes: ["Pul", "Ith", "Eld"],
+    level: 45,
+    ttypes: ["Helms"],
+    ladder: true
+  },
+  {
+    title: "Obsession",
+    runes: ["Zod", "Ist", "Lem", "Lum", "Io", "Nef"],
+    level: 69,
+    ttypes: ["Staves"],
+    ladder: true
+  },
+  {
+    title: "Flickering Flame",
+    runes: ["Nef", "Pul", "Vex"],
+    level: 55,
+    ttypes: ["Helms"],
+    ladder: true
+  },
+  {
+    title: "Mist",
+    runes: ["Cham", "Shael", "Gul", "Thul", "Ith"],
+    level: 67,
+    ttypes: ["Missile Weapons"],
+    ladder: true
   },
 ];
 

@@ -1019,6 +1019,97 @@ const runewordsDesc = {
   Cold Resist +30%
   50% Extra Gold From Monsters
   `,
+  /* Diablo 2: Resurrected patch 2.4 Runewords */
+  Plague: `
+  20% Chance To Cast Level 12 Lower Resist When Struck
+  25% Chance To Cast Level 15 Poison Nova On Striking
+  Level 13-17 Cleansing Aura When Equipped (Varies)
+  +1-2 All Skills
+  +20% Increased Attack Speed
+  +220-320% Enhanced Damage (Varies)
+  -23% To Enemy Poison Resistance
+  0.3% (0-29.7) Deadly Strike (Based on Character Level)
+  +25% Chance of Open Wounds
+  Freezes Target +3
+  `,
+  Pattern: `
+  +30% Faster Block Rate
+  +40-80% Enhanced Damage (varies)
+  10% Bonus to Attack Rating
+  Adds 17-62 Fire Damage
+  Adds 1-50 Lightning Damage
+  Adds 3-14 Cold Damage
+  +75 Poison Damage Over 5 Seconds
+  +6 To Strength
+  +6 To Dexterity
+  All Resistances +15
+  `,
+  "Unbending Will": `
+  18% Chance to Cast Level 18 Taunt on Striking
+  +3 To Combat Skills (Barbarian Only)
+  +20-30% Increased Attack Speed (varies)
+  +300-350% Enhanced Damage (varies)
+  +9 To Maximum Damage
+  +50 To Attack Rating
+  +75% Damage to Undead
+  +50 Attack Rating Against Undead
+  8-10% Life Stolen Per Hit (varies)
+  Prevent Monster Heal
+  +10 To Strength
+  +10 To Vitality
+  Damage Reduced By 8
+  +1 Light Radius
+  Requirements -20%
+  `,
+  Wisdom: `
+  +33% Piercing Attack
+  +15-25% Bonus to Attack Rating (varies)
+  4-8% Mana Stolen Per Hit (varies)
+  +30% Enhanced Defense
+  +10 Energy
+  15% Slower Stamina Drain
+  Cannot Be Frozen
+  +5 Mana After Each Kill
+  15% Damage Taken Goes To Mana
+  `,
+  Obsession: `
+  Indestructible
+  24% Chance To Cast Level 10 Weaken When Struck
+  +4 To All Skills
+  +65% Faster Cast Rate
+  +60% Faster Hit Recovery
+  Knockback
+  +10 To Vitality
+  +10 To Energy
+  Increase Maximum Life 15-25% (varies)
+  Regenerate Mana 15-30% (Varies)
+  75% Extra Gold from Monsters
+  30% Better Chance of Getting Magic Items
+  `,
+  "Flickering Flame": `
+  Level 4-8 Resist Fire Aura When Equipped (varies)
+  +3 To Fire Skills
+  -10-15% To Enemy Fire Resistance (varies)
+  +30% Enhanced Defense
+  +30 Defense Vs. Missile
+  +50-75 To Mana (Varies)
+  Half Freeze Duration
+  +5% To Maximum Fire Resist
+  Poison Length Reduced by 50%
+  `,
+  Mist: `
+  Level 8-12 Concentration Aura When Equipped (varies)
+  +3 To All Skills
+  20% Increased Attack Speed
+  +100% Piercing Attack
+  +325-375% Enhanced Damage (varies)
+  +9 To Maximum Damage
+  20% Bonus to Attack Rating
+  Adds 3-14 Cold Damage
+  Freeze Target +3
+  +24 To Vitality
+  All Resistances +40
+  `,
 };
 
 export default runewordsDesc;
