@@ -9,7 +9,7 @@
 </p>
 
 <p align="center"><em>An application to help you visualize what Runewords you can make with the current Runes you own in Diablo 2.</em></p>
-<p align="center"><em>Up to date with Diablo 2: Resurrected patch 2.3</em></p>
+<p align="center"><em>Up to date with Diablo 2: Resurrected patch 2.4</em></p>
 
 ### How to use:
 Select the runes that you own in Diablo 2 and the app will tell you which runewords you can make.<br>
