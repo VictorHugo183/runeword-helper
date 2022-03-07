@@ -7,8 +7,9 @@ const Header = () => {
     <>
     <div className="container">
       <img alt="Runeword Helper" src={logo}/>
+        <p className="patch-text">Up to date with Diablo II: Resurrected patch <span>2.4</span></p>
     </div>
-    <p className="patch-text">Up to date with Diablo II: Resurrected patch 2.4</p>
+
     </>
   );
 }
