@@ -2,7 +2,7 @@ import React from 'react';
 import '../Styles/FilterList.css'
 
 const FilterList = (props) => {
-  const { onFilterChange, socketValue, onSocketChange } = props;
+  const { onFilterChange, socketValue, onSocketChange, onLadderChange } = props;
   return (
     <>
       <div className="light-gray filterLabel">Sockets</div>
@@ -36,10 +36,18 @@ const FilterList = (props) => {
               Helms
             </label>
           </div>
-          <div className="filterOption white">
+          <div className="filterOption white last-filter">
             <label className="filterButton">
               <input onChange={() => { onFilterChange("Shields") }} type="checkbox" className="ma2" />
               Shields
+            </label>
+          </div>
+          
+          <div className="light-gray filterLabel ma2">Ladder</div>
+          <div className="filterOption white">
+            <label className="filterButton">
+              <input onChange={ onLadderChange } type="checkbox" className="ma2 mt0" />
+              Ladder Only
             </label>
           </div>
         </div>

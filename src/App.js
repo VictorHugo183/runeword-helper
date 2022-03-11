@@ -45,7 +45,8 @@ class App extends React.Component {
         'Missile Weapons': false, 'Axes': false, 'Claws': false, 'Clubs': false, 'Hammers': false, 'Maces': false, 'Polearms': false,
         'Scepters': false, 'Staves': false, 'Swords': false, 'Wands': false, 'Daggers': false, 'Spears': false
       },
-      socketValue: 'Any'
+      socketValue: 'Any',
+      ladderOnly: false
     }
   }
   /* this only runs once when the component is first loaded, it will retrieve the state saved on local storage and use it instead of the default state if it exists*/
@@ -151,6 +152,10 @@ class App extends React.Component {
     this.setState({ socketValue: event.target.value });
   }
 
+  onLadderChange = () => {
+    this.setState({ ladderOnly: !this.state.ladderOnly });
+  }
+
   render() {
     const runeNames = runes.map(rune => rune.name);
     let filteredRW;
@@ -163,7 +168,14 @@ class App extends React.Component {
       originalRunewords = this.state.runewords;
     }
 
-    //run sockets filter before running any other filter
+    //run ladder only filter before any other filters
+    if (this.state.ladderOnly) {
+      originalRunewords = originalRunewords.filter(item => {
+        return item.ladder === true;
+      })
+    }
+
+    //run sockets filter before running equipment filters
     if (this.state.socketValue !== 'Any') {
       let value = Number(this.state.socketValue);
       originalRunewords = originalRunewords.filter(item => {
@@ -243,6 +255,7 @@ class App extends React.Component {
         }
       }
     }
+    
 
     //flatten and remove all duplicate entries in the array of objects allFiltered
     const noDuplicatesFiltered = allFiltered.flat().filter((item, i, arr) => {
@@ -281,7 +294,7 @@ class App extends React.Component {
           <i className={arrowDirection}></i>
         </h3>
         <div style={this.state.filterListVisible ? {} : { display: 'none' }}>
-          <FilterList onFilterChange={this.onFilterChange} socketValue={this.state.socketValue} onSocketChange={this.onSocketChange} />
+          <FilterList onFilterChange={this.onFilterChange} socketValue={this.state.socketValue} onSocketChange={this.onSocketChange} onLadderChange={this.onLadderChange} />
         </div>
         <RuneList runeNames={runeNames} runeSelect={this.onRuneSelect} selectedRunes={this.state.selectedRunes} />
         {this.state.activatedD2R ?
